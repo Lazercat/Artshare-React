@@ -10,7 +10,7 @@ class Sharewall extends Component {
               <div id="pagecontent-note" className="artshare-content w3-main w3-content w3-padding">
 
 
-                <div id="photogrid-1-note" className="w3-row-padding w3-padding-16 w3-center" id="food">
+                <div className="w3-row-padding w3-padding-16 w3-center" id="food">
                   <div className="w3-quarter">
                     <img src="/w3images/sandwich.jpg" alt="Sandwich" />
                     <h3>The Perfect Sandwich, A Real NYC classNameic</h3>
@@ -57,6 +57,7 @@ class Sharewall extends Component {
                     <p>Lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
                   </div>
                 </div>
+                <hr />
 
 
                 <div id="pagination-note" className="w3-center w3-padding-32">
@@ -69,8 +70,6 @@ class Sharewall extends Component {
                     <a href="#" className="w3-bar-item w3-button w3-hover-black">»</a>
                   </div>
                 </div>
-
-                <hr />
 
               </div>
 

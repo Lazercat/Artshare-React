@@ -2,16 +2,12 @@ import React, { Component } from 'react';
 
 import './App.css';
 import Header from './components/Header.js';
-import Sharewall from './components/Sharewall.js';
-import Welcome from './components/Welcome.js';
 import Footer from './components/Footer.js';
 
-
-class App extends Component {
+class MyArt extends Component {
 
 constructor(props){
   super(props);
-
   this.state = {
     user: null,
 
@@ -19,14 +15,18 @@ constructor(props){
 }
   render() {
     return (
-      <div className="App">
-        <Header />
-         <Welcome />
-         <Sharewall />
+      <div className="myArt">
+         <Header/>
+          <div>
+
+            <h1> Hi i am your art. it's so pretty! </h1>
+
+
+          </div>
          <Footer />
       </div>
     );
   }
 }
 
-export default App;
+export default MyArt;

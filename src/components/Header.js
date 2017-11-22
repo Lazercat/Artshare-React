@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
 import Navbar from './Navbar.js';
 import '../App.css';
 
@@ -16,7 +15,7 @@ class Header extends Component {
     return (
       <div className="Header">
        <header className="App-header">
-         <img src={logo} className="App-logo" alt="logo" />
+         <img src="../artshare.png" className="App-logo" alt="logo" />
          <h1 className="App-title">Welcome to Artshare</h1>
        </header>
 
