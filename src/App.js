@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
-import Header from 'components/Header.js';
-import Sharewall from 'components/Sharewall.js';
-import Welcome from 'components/Welcome.js';
-import Footer from 'components/Footer.js';
+import Header from './components/Header.js';
+import Sharewall from './components/Sharewall.js';
+import Welcome from './components/Welcome.js';
+import Footer from './components/Footer.js';
 
 
 class App extends Component {
@@ -22,9 +22,8 @@ constructor(props){
       <div className="App">
          <Header/>
          <Welcome />
-         <div>
-          <Footer/>
-         </div>
+         <Sharewall />
+         <Footer />
       </div>
     );
   }

@@ -26,3 +26,28 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.sidebar-inline{
+  display:none;
+  z-index:2;
+  width:40%;
+  min-width:300px;
+}
+
+.w3-white .w3-xlarge {
+  max-width:1200px;
+  margin:auto;
+}
+.artshare-content {
+  max-width:1200px;
+  margin-top:100px;
+}
+
+.w3-quarter > img {
+  width:100%;
+}
+
+.artshare-about > .w3-image {
+  display:block;
+  margin:auto;
+}
