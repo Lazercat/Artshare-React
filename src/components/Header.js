@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar.js';
 import '../App.css';
 
 class Header extends Component {
@@ -15,11 +14,12 @@ class Header extends Component {
     return (
       <div className="Header">
        <header className="App-header">
-         <img src="../artshare.png" className="App-logo" alt="logo" />
+         <img src="/artshare.png" className="App-logo" alt="logo" />
          <h1 className="App-title">Welcome to Artshare</h1>
        </header>
 
-       <Navbar />
+
+
       </div>
     );
   }
