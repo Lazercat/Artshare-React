@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Sharewall from './Sharewall.js';
-import Welcome from './Welcome.js';
+import Login from './Login.js';
 import Post from './Post.js';
 import MyArt from './MyArt.js'
 import NotFound from './NotFound.js';
@@ -10,7 +10,6 @@ import '../styles/Main.css';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   Switch,
   NavLink
 } from 'react-router-dom';
@@ -21,7 +20,7 @@ class Main extends Component {
     <Router>
       <div className="main">
         <div className="header-wrap">
-          <Header />
+
           <div className="Navbar">
             <nav className="navbar navbar-inverse">
               <div className="container-fluid">
@@ -48,7 +47,7 @@ class Main extends Component {
         <div className="main-content-wrap">
           <Switch>
             <Route exact path="/" component={Sharewall} />
-            <Route path='/login' component={Welcome} />
+            <Route path='/login' component={Login} />
             <Route path="/post" component={Post} />
             <Route path="/myart" component={MyArt} />
             <Route path="*" component={NotFound} />

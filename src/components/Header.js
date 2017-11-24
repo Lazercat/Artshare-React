@@ -17,9 +17,6 @@ class Header extends Component {
          <img src="/artshare.png" className="App-logo" alt="logo" />
          <h1 className="App-title">Welcome to Artshare</h1>
        </header>
-
-
-
       </div>
     );
   }

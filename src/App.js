@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-
 import './App.css';
-import Header from './components/Header.js';
-import Sharewall from './components/Sharewall.js';
-import Welcome from './components/Welcome.js';
-import Footer from './components/Footer.js';
 import Main from './components/Main.js';
+import Footer from './components/Footer.js';
+
 
 
 class App extends Component {
@@ -21,7 +18,7 @@ constructor(props){
   render() {
     return (
       <div className="App">
-          <Main />
+         <Main />
          <Footer />
       </div>
     );
