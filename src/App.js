@@ -11,15 +11,15 @@ constructor(props){
   super(props);
 
   this.state = {
-    user: null,
-
+    currentuser: null,
   }
 }
+
   render() {
     return (
       <div className="App">
-         <Main />
-         <Footer />
+        <Main />
+        <Footer />
       </div>
     );
   }

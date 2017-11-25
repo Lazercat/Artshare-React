@@ -4,7 +4,6 @@ import Login from './Login.js';
 import Post from './Post.js';
 import MyArt from './MyArt.js'
 import NotFound from './NotFound.js';
-import Header from './Header.js';
 import '../App.css';
 import '../styles/Main.css';
 import {

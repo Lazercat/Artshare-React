@@ -1,3 +1,76 @@
+.sharewall {
+  margin-bottom:100px;
+}
+
 .w3-quarter > img{
   box-shadow: 2px 2px 5px #333;
 }
+
+.art-container {
+  margin: auto;
+  max-width: 1200px;
+}
+
+.responsive-image {
+  max-width: 100%;
+}
+
+.artwork > img {
+     box-shadow:5px 5px 5px #ccc;
+  display: block;
+    margin: 0 auto;
+    width:90%;
+    height:auto;
+}
+
+  .art-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+@media screen and (min-width: 499px) {
+  .art-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .artwork {
+    width:100%;
+    padding:2%;
+
+  }
+
+  .artwork > img {
+    width:80%;
+    margin: 0 auto;
+    height:auto;
+
+  }
+
+}
+@media screen and (min-width: 500px) and (max-width:700px) {
+
+  .artwork {
+    width: calc(100% / 2);
+  }
+}
+
+
+@media screen and (min-width: 701px) and (max-width:999px) {
+
+  .artwork {
+    width: calc(100% / 3);
+  }
+}
+
+
+@media screen and (min-width: 1000px) {
+
+  .artwork {
+
+    width: calc(100% / 4);
+  }
+}
+
+
