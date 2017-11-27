@@ -24,7 +24,7 @@ constructor(props){
 
 handleSubmit(event){
     event.preventDefault();
-    fetch( process.env.ARTSHARE_ARTWORK_URL, {
+    fetch( 'http://artshare-api.herokuapp.com/user/5a14951afe8c7b0014d2b8c1/artwork', {
       method: 'post',
       mode: 'cors',
       headers: {
@@ -109,7 +109,6 @@ render() {
      <div className="postArt">
             <h3>{ this.state.title}</h3>
               <h3>{ this.state.description}</h3>
-                <h3>{ this.state.cloudinaryURL}</h3>
                 <img className="uploadPreview" src={this.state.cloudinaryURL} />
                   <h3>{ this.state.artist}</h3>
 
