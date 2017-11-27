@@ -4,6 +4,8 @@ import Login from './Login.js';
 import Post from './Post.js';
 import MyArt from './MyArt.js'
 import NotFound from './NotFound.js';
+import ViewArtwork from './ViewArtwork.js';
+import Header from './Header.js';
 import '../App.css';
 import '../styles/Main.css';
 import {
@@ -14,45 +16,40 @@ import {
 } from 'react-router-dom';
 
 class Main extends Component {
+  constructor(props){
+    super(props);
+    this.state ={
+      user: null,
+      artworkId: {},
+    }
+    this.getArtworkData = this.getArtworkData.bind(this);
+  }
+
+getArtworkData(data){
+  this.setState({
+    artworkId: data,
+  });
+}
+
   render() {
     return (
     <Router>
       <div className="main">
-        <div className="header-wrap">
+            <div className="header-wrap">
+              <Header />
+            </div>
+            <div className="main-content-wrap">
 
-          <div className="Navbar">
-            <nav className="navbar navbar-inverse">
-              <div className="container-fluid">
-                <div className="navbar-header">
-                  <NavLink className="navbar-brand artShare-brand" exact to="/">ArtShare</NavLink>{' '}
-                </div>
-                <ul className="nav navbar-nav">
-                  <li className="dropdown">
-                    <a className="dropdown-toggle" data-toggle="dropdown">User
-                    <span className="caret"></span></a>
-                    <ul className="dropdown-menu">
-                        <div>
-                         <li><NavLink className="contact-link" activeClassName="green" to="/login">Login</NavLink>{' '}</li>
-                         <li><NavLink activeClassName="green" to="/post">Post Art</NavLink>{' '}</li>
-                         <li><NavLink activeClassName="green" to="/myart">My Art</NavLink>{' '}</li>
-                        </div>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </nav>
+              <Switch>
+                <Route path='/login' component={Login} />
+                <Route path="/post" component={Post} />
+                <Route path="/myart" component={MyArt} />
+                <Route exact path="/" component={Sharewall} />
+                <Route path="/artwork/:id" component={ViewArtwork} />
+                <Route path="*" component={NotFound} />
+              </Switch>
+            </div>
           </div>
-        </div>
-        <div className="main-content-wrap">
-          <Switch>
-            <Route exact path="/" component={Sharewall} />
-            <Route path='/login' component={Login} />
-            <Route path="/post" component={Post} />
-            <Route path="/myart" component={MyArt} />
-            <Route path="*" component={NotFound} />
-          </Switch>
-        </div>
-      </div>
     </Router>
     );
   }

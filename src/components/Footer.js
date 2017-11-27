@@ -6,9 +6,8 @@ class Footer extends Component {
   render() {
     return (
       <div className="Footer">
-        <footer className="w3-row-padding w3-padding-32">
-            <h3>FOOTER</h3>
-            <p>Copyright 2017 Jesse Lewis.  All Rights Reserved.</p>
+        <footer className="row">
+          <p>Made with love by <a href="http://www.jesselewis.work">Jesse Lewis</a> @ General Assembly, Austin, TX. </p>
         </footer>
       </div>
     );

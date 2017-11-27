@@ -1,15 +1,5 @@
-.header-wrap{
-  position: fixed;
-  top:0;
-  width:100%;
-}
-
-.navbar {
-  background: rgba(3, 3, 3, 1);
-  box-shadow:2px 2px 15px #333;
-}
 
 .main-content-wrap {
-  margin-top:70px;
+  margin-top:200px;
   margin-bottom:70x;
 }

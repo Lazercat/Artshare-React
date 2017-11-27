@@ -1,5 +1,7 @@
 .sharewall {
   margin-bottom:100px;
+  margin:0 auto;
+  text-align: center;
 }
 
 .w3-quarter > img{
@@ -16,18 +18,39 @@
 }
 
 .artwork > img {
-     box-shadow:5px 5px 5px #ccc;
+  box-shadow:5px 5px 5px #ccc;
   display: block;
-    margin: 0 auto;
-    width:90%;
-    height:auto;
+  margin: 0 auto;
+  width:90%;
+  height:auto;
 }
 
-  .art-grid {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-  }
+.title-link{
+  color:#00CED1;
+}
+
+/* The fast way */
+.artwork  {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+/* Pre-render the bigger shadow, but hide it */
+.artwork >img ::after {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Transition to showing the bigger shadow on hover */
+.artwork >img :hover::after {
+  opacity: 1;
+}
+
+.art-grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
 
 @media screen and (min-width: 499px) {
   .art-grid {
@@ -72,5 +95,4 @@
     width: calc(100% / 4);
   }
 }
-
 
