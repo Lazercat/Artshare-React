@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { instance } from '../utils/artshare-api.js';
 import {
   BrowserRouter as Router,
   Route,

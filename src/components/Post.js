@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import { instance } from '../utils/artshare-api.js';
+import { artShareApi } from '../utils/artshare-api.js';
 import '../App.css';
 import '../styles/Post.css';
 require('dotenv').config();
@@ -24,7 +24,7 @@ constructor(props){
 
 handleSubmit(event){
     event.preventDefault();
-    fetch( process.env.API_URL_POSTER, {
+    fetch( 'https://artshare-api.herokuapp.com/user/5a14951afe8c7b0014d2b8c1/artwork', {
       method: 'post',
       mode: 'cors',
       headers: {
