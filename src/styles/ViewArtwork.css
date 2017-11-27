@@ -1,3 +1,18 @@
 .viewArtwork{
   margin-bottom:200px;
 }
+
+.viewArt{
+  width:80%;
+  margin-bottom:15px;
+}
+
+.well {
+  width:40%;
+  margin:0 auto;
+}
+
+
+.view-more-link {
+  color: orange;
+}
