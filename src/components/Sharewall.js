@@ -23,7 +23,7 @@ constructor(props){
 }
 
 componentWillMount() {
-  fetch('https://artshare-api.herokuapp.com/artworks')
+  fetch('/artworks')
     .then(res => res.json())
     .then(artworks => this.setState({ artworks }));
 }
@@ -46,14 +46,16 @@ render() {
           )}
 
 
-          <Link to={'/post'} >
+
           <div className="artwork">
-            <img src="./addnew.png"/>
-            <h3></h3>
-            <h4><a href="#">Add New</a></h4>
-            <p>Add a new artwork</p>
+
+                <img src="./addnew.png"/>
+                <h3></h3>
+                <h4> <Link className="title-link" to={'/post'} >Add New</Link></h4>
+                <p>Add a new artwork</p>
+
           </div>
-          </Link>
+
 
       </div>
     </div>

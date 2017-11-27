@@ -1,6 +1,6 @@
 .sharewall {
   margin-bottom:100px;
-  margin:0 auto;
+
   text-align: center;
 }
 
@@ -26,25 +26,10 @@
 }
 
 .title-link{
-  color:#00CED1;
+  color:blue;
 }
 
-/* The fast way */
-.artwork  {
-  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-}
 
-/* Pre-render the bigger shadow, but hide it */
-.artwork >img ::after {
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-/* Transition to showing the bigger shadow on hover */
-.artwork >img :hover::after {
-  opacity: 1;
-}
 
 .art-grid {
   display: flex;
