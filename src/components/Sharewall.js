@@ -23,7 +23,7 @@ constructor(props){
 }
 
 componentWillMount() {
-  fetch('http://artshare-api.herokuapp.com/artworks')
+  fetch('https://artshare-api.herokuapp.com/artworks')
     .then(res => res.json())
     .then(artworks => this.setState({ artworks }));
 }
