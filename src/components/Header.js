@@ -30,7 +30,8 @@ class Header extends Component {
                   <NavLink className="navbar-brand artShare-brand" exact to="/">ArtShare</NavLink>{' '}
                 </div>
                 <ul className="nav navbar-nav">
-                  <li className="dropdown">
+                <li><NavLink activeClassName="green" to="/post">Post Art</NavLink>{' '}</li>
+               {/*   <li className="dropdown">
                     <a className="dropdown-toggle" data-toggle="dropdown">User
                     <span className="caret"></span></a>
                     <ul className="dropdown-menu">
@@ -40,7 +41,7 @@ class Header extends Component {
                          <li><NavLink activeClassName="green" to="/myart">My Art</NavLink>{' '}</li>
                         </div>
                     </ul>
-                  </li>
+                  </li>*/}
                 </ul>
               </div>
             </nav>

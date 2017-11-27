@@ -61,37 +61,41 @@ render() {
   let confirmSubmit;
    let formdisplay;
     if (this.state.formstate==='new'){
-     formdisplay =  <form onSubmit={this.handleSubmit} >
-                        <label> Title
-                        <input
-                          onChange={ (evt) => { this.setState({ title: evt.target.value}); }}
-                          value={ this.state.title }
-                          placeholder="title" type="text" name="title"
-                        /></label><br />
+     formdisplay =  <div className="postform"> <form onSubmit={this.handleSubmit} >
 
-                        <label> Description
-                        <input
-                          onChange={ (evt) => { this.setState({ description: evt.target.value}); } }
-                          value={ this.state.description }
-                          placeholder="description" type="text" name="description"
-                        /></label><br />
 
                         <label> Photo URL
                         <input
                           onChange={ (evt) => { this.setState({ cloudinaryURL: evt.target.value}); } }
                           value={ this.state.cloudinaryURL }
-                          placeholder="image url http://...." type="text" name="cloudinaryURL"
+                          placeholder="http://www.your-photo.com..." type="text" name="cloudinaryURL"
+                        /></label><br />
+
+                        <label> Title
+                        <input
+                          onChange={ (evt) => { this.setState({ title: evt.target.value}); }}
+                          value={ this.state.title }
+                          placeholder="name of artwork" type="text" name="title"
                         /></label><br />
 
                         <label> Artist
                         <input
                           onChange={ (evt) => { this.setState({ artist: evt.target.value}); } }
                           value={ this.state.artist }
-                          placeholder="artist" type="text" name="artist"
+                          placeholder="original artist" type="text" name="artist"
                         /></label><br />
 
+
+                          <label> Description
+                        <textarea
+                          onChange={ (evt) => { this.setState({ description: evt.target.value}); } }
+                          value={ this.state.description }
+                          placeholder="describe your art here." type="text" name="description"
+                        > </textarea></label><br />
+
+
                         <button type="Submit">Start</button>
-                    </form>;
+                    </form></div>;
 
     } else if (this.state.formstate==='submitted'){
     formdisplay =  <div>
@@ -107,13 +111,11 @@ render() {
 
   return (
      <div className="postArt">
-            <h3>{ this.state.title}</h3>
-              <h3>{ this.state.description}</h3>
-                <img className="uploadPreview" src={this.state.cloudinaryURL} />
-                  <h3>{ this.state.artist}</h3>
+        <img className="uploadPreview" src={this.state.cloudinaryURL} />
+
 
         <div className="form-style-10">
-        {formdisplay}
+          {formdisplay}
         </div>
      </div>
     );
