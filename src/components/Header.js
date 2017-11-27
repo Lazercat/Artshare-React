@@ -4,7 +4,6 @@ import '../styles/Header.css'
 import '../styles/Main.css';
 import {
   BrowserRouter as Router,
-  Route,
   NavLink
 } from 'react-router-dom';
 
