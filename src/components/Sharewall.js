@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import '../styles/Sharewall.css';
 import '../App.css';
+require('dotenv').config();
 
 
 
@@ -23,7 +24,8 @@ constructor(props){
 }
 
 componentWillMount() {
-  fetch('/artworks')
+  let fetchThis = process.env.API_URL_FETCHER;
+  fetch( '/artworks' )
     .then(res => res.json())
     .then(artworks => this.setState({ artworks }));
 }

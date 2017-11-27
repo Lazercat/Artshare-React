@@ -23,7 +23,7 @@ constructor(props){
 
 
 componentDidMount() {
-    axios.get('http://artshare-api.herokuapp.com/artwork/'+this.props.match.params.id)
+    axios.get('https://artshare-api.herokuapp.com/artwork/'+this.props.match.params.id)
     .then( (result)=> {
       const thisData = result.data;
       console.log(thisData);

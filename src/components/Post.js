@@ -24,7 +24,7 @@ constructor(props){
 
 handleSubmit(event){
     event.preventDefault();
-    fetch( 'https://artshare-api.herokuapp.com/user/5a14951afe8c7b0014d2b8c1/artwork', {
+    fetch( process.env.API_URL_POSTER, {
       method: 'post',
       mode: 'cors',
       headers: {
