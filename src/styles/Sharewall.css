@@ -1,7 +1,11 @@
 .sharewall {
   margin-bottom:100px;
-
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+   justify-content: center;
+  align-items: center;
 }
 
 .w3-quarter > img{
@@ -9,8 +13,9 @@
 }
 
 .art-container {
-  margin: auto;
-  max-width: 1200px;
+
+max-width: 1400px;
+
 }
 
 .responsive-image {
@@ -35,6 +40,8 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+   justify-content: center;
+  align-items: center;
 }
 
 @media screen and (min-width: 499px) {
@@ -42,6 +49,9 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+     justify-content: center;
+  align-items: center;
+
   }
   .artwork {
     width:100%;
@@ -62,6 +72,15 @@
   .artwork {
     width: calc(100% / 2);
   }
+
+    .art-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+     justify-content: center;
+  align-items: center;
+
+  }
 }
 
 
@@ -70,14 +89,50 @@
   .artwork {
     width: calc(100% / 3);
   }
+
+    .art-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+     justify-content: center;
+  align-items: center;
+
+  }
 }
 
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1000px) and (max-width: 1100px) {
 
   .artwork {
 
     width: calc(100% / 4);
+  }
+
+    .art-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+     justify-content: center;
+  align-items: center;
+
+  }
+}
+
+
+@media screen and (min-width: 1101px) {
+
+  .artwork {
+
+    width: calc(100% / 5);
+  }
+
+    .art-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+     justify-content: center;
+  align-items: center;
+
   }
 }
 

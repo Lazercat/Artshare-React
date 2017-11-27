@@ -62,11 +62,7 @@ render() {
       </div>
     </div>
 
-        <hr />
 
-        <div className="load-more-wrap">
-          <button className="btn-load">Load More</button>
-        </div>
 
 
 
