@@ -15,7 +15,7 @@ constructor(props){
     description: '',
     cloudinaryURL: '',
     artist: '',
-    tags: [{}],
+    tags: {},
   }
   this.handleSubmit = this.handleSubmit.bind(this);
   this.submitMore = this.submitMore.bind(this);
