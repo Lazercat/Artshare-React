@@ -8,10 +8,6 @@
   align-items: center;
 }
 
-img{
-  box-shadow: 2px 2px 5px #333;
-}
-
 .art-container {
   max-width: 1400px;
 }
@@ -27,10 +23,10 @@ img{
 
 .artwork{
   box-shadow: 1px 1px 3px #ccc;
-  max-height:370px;
-  height:370px;
-
-
+  padding:4px;
+  height:auto;
+  overflow-y:hidden;
+  margin:10px;
 }
 
 .text-wrap{
@@ -42,6 +38,7 @@ img{
   justify-content: center;
   box-shadow:5px 5px 5px #ccc;
   display: block;
+  padding:1px;
   margin: 0 auto;
   width:90%;
   height:auto;
@@ -59,30 +56,7 @@ img{
   align-items: center;
 }
 
-@media screen and (min-width: 499px) {
-  .art-grid {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-     justify-content: center;
-  align-items: center;
 
-  }
-  .artwork {
-    width:100%;
-    padding:2%;
-    margin:5px;
-
-  }
-
-  .artwork > img {
-    width:80%;
-    margin: 0 auto;
-    height:auto;
-
-  }
-
-}
 @media screen and (min-width: 500px) and (max-width:700px) {
 
   .artwork {

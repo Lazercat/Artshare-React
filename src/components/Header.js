@@ -23,7 +23,7 @@ class Header extends Component {
          <img src="/artshare.png" className="App-logo" alt="logo" />
          <h1 className="App-title">Welcome to Artshare: Share your art online!</h1>
        </header>
-       <div className="Navbar">
+       <div className="navbar-xs">
             <nav className="navbar navbar-inverse">
               <div className="container-fluid">
                 <div className="navbar-header">
