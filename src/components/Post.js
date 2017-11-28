@@ -2,20 +2,26 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { artShareApi } from '../utils/artshare-api.js';
 import Dropzone from 'react-dropzone';
+import {
+  BrowserRouter as Router,
+  Link
+} from 'react-router-dom';
 import '../App.css';
 import '../styles/Post.css';
 
 class Post extends Component {
-constructor(props){
-  super(props);
-  this.state = {
-    user: null,
-    formstate: 'new',
-    title: '',
-    description: '',
-    cloudinaryURL: '',
-    artist: '',
-    tags: {},
+  constructor(props){
+    super(props);
+    this.state = {
+      user: null,
+      formstate: 'new',
+      title: '',
+      description: '',
+      cloudinaryURL: '',
+      artist: '',
+      tags: '',
+      processing: false,
+      result: 'new',
   }
   this.handleSubmit = this.handleSubmit.bind(this);
   this.submitMore = this.submitMore.bind(this);
@@ -54,7 +60,12 @@ handleDrop = files => {
 }
 
 handleSubmit(event){
+   this.setState({ processing: true });
+   console.log('handlesubmit 1) ' + this.state.processing + this.state.result);
     event.preventDefault();
+     this.setState({
+        formstate: 'submitted',
+      })
     fetch( 'https://artshare-api.herokuapp.com/user/5a14951afe8c7b0014d2b8c1/artwork', {
       method: 'post',
       mode: 'cors',
@@ -67,15 +78,20 @@ handleSubmit(event){
         description: this.state.description,
         cloudinaryURL: this.state.cloudinaryURL,
         artist: this.state.artist,
+        tags: this.state.tags,
       }),
     })
     .then(response => {
       if (response.status >= 200 && response.status < 300) {
         console.log(response);
+        this.setState({ processing: false, result: 'success' });
+        console.log('handlesubmit success) ' + this.state.processing + this.state.result);
       } else {
         const error = new Error(response.statusText);
         error.response = response;
         console.log(JSON.stringify(error));
+        this.setState({ processing: false, result: 'error'});
+        console.log('handlesubmit error) ' + this.state.processing + this.state.result);
         throw error;
       }
     })
@@ -90,13 +106,33 @@ submitMore(){
 
 render() {
   let confirmSubmit;
-   let formdisplay;
-    if (this.state.formstate==='new'){
-     formdisplay =  <div className="post-container">
+  const { result, processing } = this.state;
+
+  if (result === 'success') {
+    return <div className="success">
+              <h1>Success!</h1>
+              <p> Your art has been shared!</p>
+              <Link to="/"> View Art </Link>
+              <Link to='/post'> Share more art!</Link>
+            </div>;
+  }
+
+  else if (result ==='error'){
+    return <div className="failure">
+              <h1>Ooops!</h1>
+              <p>An unexpected error has occurred.</p>
+              <Link to="/">View Art</Link>
+              <Link to='/post'>Share more art!</Link>
+           </div>;
+  }
 
 
+  else if (result === 'new'){
+  return (
+     <div className="postArt">
+        <div className="form-style-10">
+            <div className="post-container">
                   <div className="postform-wrap">
-
                         <form className="postform" onSubmit={this.handleSubmit} >
 
                         <div className="drop-container">
@@ -104,9 +140,8 @@ render() {
                               <Dropzone
                                 onDrop={this.handleDrop}
                                 multiple
-                                createImageThumnails="true"
                                 accept="image/*"
-                                style={{"width" : "calc(100%/2)", "margin-bottom" : "15px", "color": "white", "float": "left", "cursor" : "pointer", "background" : "rgba(136, 176, 75, 1)", "padding":"15px", "height" : "100px", "border" : "3px dashed teal", "box-shadow" : "1px 1px 3px #333"}}>
+                                style={{"width" : "40%", "marginBottom" : "15px", "color": "white", "float": "left", "cursor" : "pointer", "background" : "rgba(136, 176, 75, 1)", "padding":"15px", "height" : "100px", "border" : "3px dashed teal", "boxShadow" : "1px 1px 3px #333"}}>
                                  {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
                                   if (isDragActive) {
                                     return "This file is authorized";
@@ -124,6 +159,7 @@ render() {
 
 
                         <input hidden
+                          onChange={ (evt) => { this.setState({ cloudinaryURL: evt.target.value}); }}
                           value={ this.state.cloudinaryURL }
                           placeholder="http://www.your-photo.com..." type="text" name="cloudinaryURL"
                         />
@@ -146,7 +182,7 @@ render() {
                         <input
                           onChange={ (evt) => { this.setState({ tags: evt.target.value}); }}
                           value={ this.state.tags }
-                          placeholder="name of artwork" type="text" name="title"
+                          placeholder="tags of artwork" type="text" name="tags"
                         /></label><br />
 
 
@@ -163,28 +199,10 @@ render() {
                           <button type="Submit">Post Art!</button>
                         </div>
                     </form></div>
-                  </div>;
-
-    } else if (this.state.formstate==='submitted'){
-    formdisplay =  <div>
-                      <h1>Artwork submitted!</h1>
-                     <button type="button" onClick={this.submitMore()}>primary</button>
-                  </div>;
-    } else {
-    formdisplay =   <div>
-                      <h1> Unexplained state error! formstate is unknown. </h1>
-                    </div>;
-    }
-
-
-  return (
-     <div className="postArt">
-        <div className="form-style-10">
-          {formdisplay}
-
+                  </div>
         </div>
      </div>
-    );
+    ); }
   }
 }
 

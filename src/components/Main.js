@@ -5,6 +5,7 @@ import Post from './Post.js';
 import MyArt from './MyArt.js'
 import NotFound from './NotFound.js';
 import ViewArtwork from './ViewArtwork.js';
+import Documentation from './Documentation.js';
 import Header from './Header.js';
 import '../App.css';
 import '../styles/Main.css';
@@ -12,7 +13,6 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  NavLink
 } from 'react-router-dom';
 
 class Main extends Component {
@@ -44,6 +44,7 @@ getArtworkData(data){
                 <Route path='/login' component={Login} />
                 <Route path="/post" component={Post} />
                 <Route path="/myart" component={MyArt} />
+                <Route path="/documentation" component={Documentation} />
                 <Route exact path="/" component={Sharewall} />
                 <Route path="/artwork/:id" component={ViewArtwork} />
                 <Route path="*" component={NotFound} />

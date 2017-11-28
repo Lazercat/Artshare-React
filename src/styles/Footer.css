@@ -1,9 +1,16 @@
 .Footer {
   position: fixed;
   bottom: 0;
-  height:50px;
+  height:40px;
   width:100%;
-  background:#fff;
-  border-top: 1px solid #ccc;
-  padding:20px;
+  color:white;
+  border-top: 1px solid #333;
+  padding:10px;
+  background-color: rgba(136, 176, 75, 1);
+}
+
+.Footer a {
+  color: purple;
+  text-decoration: underline dotted;
+  font-size: 20px;
 }

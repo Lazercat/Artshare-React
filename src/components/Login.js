@@ -1,13 +1,9 @@
 
 import React, { Component } from 'react';
-import FacebookLogin from 'react-facebook-login';
 import '../App.css';
 import '../styles/Login.css';
 
 class Login extends React.Component {
-  responseFacebook(response) {
-    console.log(response)
-  }
 
   render() {
     return (

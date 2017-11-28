@@ -4,9 +4,6 @@
   box-shadow:2px 2px 4px #444;
 }
 
-.post-container{
-  margin-top:185px;
-}
 
 .postform-wrap{
   margin-top:10px;
@@ -16,7 +13,7 @@
 }
 
 .postArt{
-  margin-bottom:100px;
+  margin-bottom:20px;
 }
 
 form.postform{
@@ -72,4 +69,7 @@ textarea {
   padding:15px;
 }
 
+.success {
+  min-height:50%;
+}
 

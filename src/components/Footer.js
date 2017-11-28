@@ -7,7 +7,7 @@ class Footer extends Component {
     return (
       <div className="Footer">
         <footer className="row">
-          <p>Made with love by <a href="http://www.jesselewis.work">Jesse Lewis</a> @ General Assembly, Austin, TX. </p>
+          <p>Made with love by <a href="http://www.jesselewis.work">Jesse Lewis</a> @ General Assembly ATX. </p>
         </footer>
       </div>
     );

@@ -20,8 +20,8 @@ class Header extends Component {
     return (
       <div className="Header">
        <header className="App-header">
-         <img src="/artshare.png" className="App-logo" alt="logo" />
-         <h1 className="App-title">Welcome to Artshare: Share your art online!</h1>
+         <img src="/color-star-3-217610/color-star-3-64-217610.png" className="App-logo" alt="logo" />
+         <h1 className="App-title">ArtShare: share your art!</h1>
        </header>
        <div className="navbar-xs">
             <nav className="navbar navbar-inverse">
@@ -30,8 +30,9 @@ class Header extends Component {
                   <NavLink className="navbar-brand artShare-brand" exact to="/">ArtShare</NavLink>{' '}
                 </div>
                 <ul className="nav navbar-nav">
-                <li><NavLink activeClassName="green" to="/post">Post Art</NavLink>{' '}</li>
-                <li><NavLink activeClassName="green" to="/">View Art</NavLink>{' '}</li>
+                <li><NavLink activeClassName="white" to="/post">Post Art</NavLink>{' '}</li>
+                <li><NavLink activeClassName="white" to="/">View Art</NavLink>{' '}</li>
+                <li><NavLink activeClassName="white" to="/documentation">About ArtShare</NavLink>{' '}</li>
 
                {/*   <li className="dropdown">
                     <a className="dropdown-toggle" data-toggle="dropdown">User

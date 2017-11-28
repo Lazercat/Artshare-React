@@ -51,14 +51,11 @@ render() {
            </div>
           )}
 
-
-
           <div className="artwork">
                 <img src="./addnew.png" alt="add art" />
                 <h4> <Link className="title-link" to={'/post'} >Add New</Link></h4>
                 <p>Add a new artwork</p>
           </div>
-
 
       </div>
     </div>
@@ -68,7 +65,7 @@ render() {
 
 
 
-       {/* <div id="pagination-note" className="w3-center w3-padding-32">
+       { <div id="pagination-note" className="w3-center w3-padding-32">
           <div className="w3-bar">
             <a href="#" className="w3-bar-item w3-button w3-hover-black">«</a>
             <a href="#" className="w3-bar-item w3-black w3-button">1</a>
@@ -77,7 +74,7 @@ render() {
             <a href="#" className="w3-bar-item w3-button w3-hover-black">4</a>
             <a href="#" className="w3-bar-item w3-button w3-hover-black">»</a>
           </div>
-        </div>*/}
+        </div>}
       </div>
     </div>
     );

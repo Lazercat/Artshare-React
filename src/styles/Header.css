@@ -12,7 +12,7 @@
 }
 
 .header-wrap{
-  position: fixed;
+  position: relative;
   z-index: 99;
   top:0;
   width:100%;
@@ -24,7 +24,7 @@
   border-radius:1px;
 }
 
-.artShare-brand {
+.artShare-brand a{
   color: white;
 }
 
