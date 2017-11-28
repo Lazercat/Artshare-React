@@ -44,9 +44,10 @@ render() {
           {this.state.artworks.map(artwork =>
            <div key={artwork._id} className="artwork">
               <img src={artwork.cloudinaryURL} alt={artwork.title} />
-              <h3><Link className="title-link" to={'/artwork/'+artwork._id}>'{artwork.title}'</Link></h3>
-              <h4>artist: &nbsp;{artwork.artist}</h4>
-              <p>description: &nbsp;{artwork.description}</p>
+              <div className="text-wrap">
+                <h3><Link className="title-link" to={'/artwork/'+artwork._id}>'{artwork.title}'</Link></h3>
+                <h4>artist: &nbsp;{artwork.artist}</h4>
+              </div>
            </div>
           )}
 

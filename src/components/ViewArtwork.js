@@ -52,14 +52,17 @@ render() {
 
                    <div className="col-sm-12">
                                <h1>{theData.title}</h1>
-                               <img className="viewArt" src={theData.cloudinaryURL} text={theData.title} alt={theData.title} />
-
-
-                            <div className="well">
+                                <div className="well">
                               <p>Artwork Title: {theData.title}</p>
                                <p>Artist: {theData.artist}</p>
                                <p>Description {theData.description}</p>
                             </div>
+
+
+                               <img className="viewArt" src={theData.cloudinaryURL} text={theData.title} alt={theData.title} />
+
+
+
                              <hr />
                                 <div className="row">
                                     <h3><Link className="view-more-link" to={'/'} >View more art</Link></h3>

@@ -31,6 +31,7 @@ class Header extends Component {
                 </div>
                 <ul className="nav navbar-nav">
                 <li><NavLink activeClassName="green" to="/post">Post Art</NavLink>{' '}</li>
+                <li><NavLink activeClassName="green" to="/">View Art</NavLink>{' '}</li>
 
                {/*   <li className="dropdown">
                     <a className="dropdown-toggle" data-toggle="dropdown">User
