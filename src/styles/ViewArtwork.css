@@ -4,15 +4,16 @@
 }
 
 .viewArt{
-  width:80%;
+  width:90%;
   margin-bottom:15px;
 }
 
 .well {
-  width:40%;
+  width:90%;
+  margin-top:130px;
   margin:0 auto;
+  margin-bottom:100px;
 }
-
 
 .view-more-link {
   color: orange;

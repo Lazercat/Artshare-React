@@ -45,36 +45,23 @@ render() {
 
       return (
         <div className="viewArtwork">
-
-            <div>
-
               <div className="row content">
+                  <div className="col-sm-8">
 
-                   <div className="col-sm-12">
-                               <h1>{theData.title}</h1>
-                                <div className="well">
-                              <p>Artwork Title: {theData.title}</p>
-                               <p>Artist: {theData.artist}</p>
-                               <p>Description {theData.description}</p>
-                            </div>
+                     <img className="viewArt" src={theData.cloudinaryURL} text={theData.title} alt={theData.title} />
+                  </div>
+                  <div className="col-sm-4">
+                    <div className="well">
+                         <h1>{theData.title}</h1>
 
-
-                               <img className="viewArt" src={theData.cloudinaryURL} text={theData.title} alt={theData.title} />
-
-
-
-                             <hr />
-                                <div className="row">
-                                    <h3><Link className="view-more-link" to={'/'} >View more art</Link></h3>
-                                </div>
-
-
-                    </div>
-
+                         <p>Artist: {theData.artist}</p>
+                         <p>Description {theData.description}</p>
+                      </div>
+                  </div>
+                  <div className="row">
+                      <h3><Link className="view-more-link" to={'/'} >View more art</Link></h3>
+                  </div>
               </div>
-
-            </div>
-
         </div>
 
 

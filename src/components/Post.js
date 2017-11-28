@@ -47,10 +47,10 @@ handleDrop = files => {
   });
 
   // Once all the files are uploaded
-  axios.all(uploaders).then(() => {
-    // ... perform after upload is successful operation
+//   axios.all(uploaders).then(() => {
+//     // ... perform after upload is successful operation
 
-});
+// });
 }
 
 handleSubmit(event){
