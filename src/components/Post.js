@@ -29,9 +29,9 @@ class Post extends Component {
 
 
 async componentWillMount() {
-  console.log(this.state.currentUser + 'THIS COMPONENT MOUNTED USERDATA!!');
+  console.log(this.props.currentUser + 'THIS COMPONENT MOUNTED USERDATA!!');
 
-          console.log('I AM USER! ' +JSON.stringify(this.state.currentUser));
+          console.log('I AM USER! ' +JSON.stringify(this.props.currentUser));
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) { this.setState({ currentUser: user});
@@ -40,18 +40,6 @@ async componentWillMount() {
   }.bind(this));
 
 
-}
-
-async login() {
-  const result = await auth().signInWithPopup(provider)
-  this.setState({currentUser: result.user});
-  console.log(result);
-}
-
-logout() {
- const result =  auth().signOut()
-  this.setState({user: null});
-  console.log(result);
 }
 
 
@@ -109,8 +97,8 @@ handleSubmit(event){
         title: this.state.title,
         description: this.state.description,
         cloudinaryURL: this.state.cloudinaryURL,
-        artist: this.state.currentUser.displayName,
-        firebaseId: this.state.currentUser.uid,
+        artist: this.props.currentUser.displayName,
+        firebaseId: this.props.currentUser.uid,
         tags: this.state.tags,
       }),
     })
@@ -222,19 +210,6 @@ render() {
                           placeholder="name of artwork" type="text" name="title"
                         /></label><br />
 
-                        <input
-                          onChange={ (evt) => { this.setState({ artist: evt.target.value}); } }
-                          value={ this.state.currentUser.displayName }
-                          placeholder="original artist" type="text" name="artist"
-                        />
-
-                         <input
-                          onChange={ (evt) => { this.setState({ firebaseId: evt.target.value}); } }
-                          value={ this.state.currentUser.uid }
-                          placeholder="firebaseUserId" type="text" name="firebaseId"
-                        />
-
-
                         <label> Search Tags
                         <input
                           onChange={ (evt) => { this.setState({ tags: evt.target.value}); }}
@@ -250,9 +225,14 @@ render() {
                           placeholder="describe your art here." type="text" name="description"
                           ></textarea></label><br />
 
-                          <label> submission by:
-                          <div className="submitter">{ this.state.currentUser.displayName }</div>
+                          <label> Art by:
+                          <div className="submitter">{ this.props.currentUser !== undefined ? this.props.currentUser.displayName : 'Monkeys.. uid'}</div>
                           </label>
+
+                         <label> Artist firebase user id
+                         <div className="submitter"> { this.props.currentUser !== undefined ? this.props.currentUser.uid : 'Monkeys.. uid'}</div>
+                        </label>
+
 
 
                         <div className="button-wrap">
