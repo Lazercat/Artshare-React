@@ -41,66 +41,82 @@ render() {
 
   return(
     <div className="Header">
-       <header className="App-header">
-         <img src="/color-star-3-217610/color-star-3-64-217610.png" className="App-logo" alt="logo" />
-         <h1 className="App-title">ArtShare: share your art!</h1>
-
-       </header>
-       <div className="navbar-xs">
-            <nav className="navbar-static-top navbar-inverse">
-              <div className="container-fluid">
-                <div className="navbar-header">
-                 <div className="mobile-menu">
-                  <NavLink className="navbar-brand artShare-brand" exact to="/">ArtShare</NavLink>{' '}
-                 </div>
-                </div>
-                <ul className="nav navbar-nav">
-                <li><NavLink activeStyle={{'color':'white'}} to="/post">Post Art</NavLink>{' '}</li>
-                <li><NavLink activeClassName="white" to="/">View Art</NavLink>{' '}</li>
-                <li><NavLink activeClassName="white" to="/documentation">About ArtShare</NavLink>{' '}</li>
-                <li><a href="#" onClick={ this.handleLogin.bind(this) } >Facebook Login</a>{' '}</li>
-                </ul>
-              </div>
-            </nav>
-          </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="/color-star-3-217610/color-star-3-48-217610.png" className="App-logo" alt="logo" width="48" height="48" alt="" />
+          <NavLink className="navbar-brand artShare-brand" exact to="/">ArtShare</NavLink>{' '}
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+               <NavLink className="nav-link" to="/post">Post Art</NavLink>{' '}
+            </li>
+            <li class="nav-item">
+              <NavLink className="nav-link" to="/">View Art</NavLink>{' '}
+            </li>
+            <li class="nav-item">
+              <NavLink className="nav-link"  to="/documentation">About ArtShare</NavLink>{' '}
+            </li>
+            <li class="nav-item profile-item">
+             <a href="#" className="nav-link logout" onClick={ this.handleLogin.bind(this) } >Facebook Login</a>{' '}
+            </li>
+          </ul>
+        </div>
       </div>
+    </nav>
+
+    </div>
   )
 
 
   } else if(this.props.currentUser){
     return (
-      <div className="Header">
-       <header className="App-header">
-         <img src="/color-star-3-217610/color-star-3-64-217610.png" className="App-logo" alt="logo" />
-         <h1 className="App-title">ArtShare: share your art! </h1>
-       </header>
-       <div className="navbar-xs">
-            <nav className="navbar-static-top navbar-inverse">
-              <div className="container-fluid">
-                <div className="navbar-header">
-                  <NavLink className="navbar-brand artShare-brand" exact to="/">ArtShare</NavLink>{' '}
-                </div>
-                <ul className="nav navbar-nav">
-                <li><NavLink activeClassName="white" to="/post">Post Art</NavLink>{' '}</li>
-                <li><NavLink activeClassName="white" to="/">View Art</NavLink>{' '}</li>
-                <li><NavLink activeClassName="white" to="/documentation">About ArtShare</NavLink>{' '}</li>
-
-                  <li className="dropdown">
-                    <a className="dropdown-toggle" data-toggle="dropdown"> <img src={this.props.currentUser.photoURL} className="profile-pic" />{this.props.currentUser.displayName}
-                    <span className="caret"></span></a>
-                    <ul className="dropdown-menu">
-                        <div>
-                         <li><NavLink to="/post">Post Art</NavLink>{' '}</li>
-                         <li><a href="#" onClick={ this.handleLogout.bind(this)}>Logout</a></li>
-                        </div>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-          </div>
-
+   <div className="Header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="/color-star-3-217610/color-star-3-48-217610.png" className="App-logo" alt="logo" width="48" height="48" alt="" />
+          <NavLink className="navbar-brand artShare-brand" exact to="/">ArtShare</NavLink>{' '}
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+               <NavLink className="nav-link" to="/post">Post Art</NavLink>{' '}
+            </li>
+            <li class="nav-item">
+              <NavLink className="nav-link" to="/">View Art</NavLink>{' '}
+            </li>
+            <li class="nav-item">
+              <NavLink className="nav-link"  to="/documentation">About ArtShare</NavLink>{' '}
+            </li>
+            <li class="nav-item profile-item">
+             <img src={ this.props.currentUser.photoURL } className="profile-pic" alt={this.props.currentUser.displayName} />
+             <a href="#" className="nav-link logout" onClick={ this.handleLogout.bind(this)}>Logout</a>
+            </li>
+          </ul>
+        </div>
       </div>
+    </nav>
+
+    </div>
+
     );}
   }
 }

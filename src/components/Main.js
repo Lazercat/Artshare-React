@@ -68,12 +68,11 @@ getLogoutClick() {
         </div>
         <div className="main-content-wrap">
           <Switch>
-            <Route path="/post" render={props => <Post currentUser={this.state.currentUser} {...props} />} />
-
-            <Route path="/myart" component={MyArt} />
-            <Route path="/documentation" component={Documentation} />
             <Route exact path="/" component={Sharewall} />
             <Route path="/artwork/:id" component={ViewArtwork} />
+            <Route path="/post" render={props => <Post currentUser={this.state.currentUser} {...props} />} />
+            <Route path="/myart" component={MyArt} />
+            <Route path="/documentation" component={Documentation} />
             <Route path="*" component={NotFound} />
           </Switch>
         </div>
