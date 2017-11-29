@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "axios-fileupload": "0.0.1",
+    "dotenv": "^4.0.0",
     "firebase": "^4.6.2",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
