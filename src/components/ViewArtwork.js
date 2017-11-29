@@ -58,9 +58,10 @@ componentDidMount() {
 
 render() {
   console.log(this.state);
+
   const theData = this.state.artworkData;
     if (Object.keys(theData).length > 0 && theData.constructor === Object){ // make sure it's a valid object
-
+     let created = theData.createdOn.slice(0, 9);
       return (
         <div className="viewArtwork">
               <div className="row content">
@@ -81,9 +82,11 @@ render() {
                   </div>
                   <div className="col-sm-4">
                     <div className="well">
-                         <h1>{theData.title}</h1>
+                         <h1>'{theData.title}'</h1>
                          <h4>Artist:&nbsp;</h4><p>{theData.artist}</p>
                          <h4>Description:&nbsp;</h4><p>{theData.description}</p>
+                         <h4>Tags&nbsp;</h4><p>{theData.tags}</p>
+                         <h4>Submitted</h4><p>{created}</p>
 
                          <p><Link className="view-more-link" to={'/'} >[close]</Link></p>
                       </div>
