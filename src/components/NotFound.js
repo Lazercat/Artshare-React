@@ -5,6 +5,6 @@ import '../App.css';
 export default (props) => (
 <div className="box404">
   <h1>404.. Page not found!</h1>
-  <img src="/404represent.png" />
+  <img src="/404represent.png" alt="page not found" />
 </div>
 );

@@ -18,13 +18,17 @@
 }
 
 .artwork{
-
   padding:2px;
   height:auto;
   overflow-y:hidden;
   margin:10px;
 }
 
+.add-new{
+  margin-bottom:40px;
+  max-width:100px;
+
+}
 .text-wrap{
   margin-top:25px;
 }
@@ -36,14 +40,24 @@
   display: block;
   padding:1px;
   margin: 0 auto;
+
   width:90%;
   height:auto;
 }
 
 .title-link{
-  color:blue;
+  color:#2200CC;
 }
 
+.title-link:hover{
+  color: #0088cc;
+  text-decoration:underline dotted;
+}
+
+
+.add-wrap > h4 {
+  margin-top:15px;
+}
 .art-grid {
   width:100%;
   display: flex;

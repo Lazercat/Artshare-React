@@ -8,8 +8,8 @@
   color: orange;
  }
 
- .Header{
-  box-shadow:2px 2px 14px #444;
+ .navbar, .navbar-expand-lg, .navbar-dark, .bg-dark, .fixed-top{
+  border-bottom:4px solid #fff;
  }
 
  .profile-pic{
@@ -23,8 +23,9 @@
  .profile-item{
   margin:0 auto;
   max-width:100px;
+  line-height: .9em;
   background:#444;
-  border-radius:20%;
+  border-radius:25%;
  }
 
  .logout {

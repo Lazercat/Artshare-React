@@ -31,9 +31,7 @@ class Main extends Component {
 async componentWillMount() {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-          console.log(user);
           this.setState({ currentUser: user});
-          console.log('I AM USER! ' +JSON.stringify(this.state.currentUser));
        } else { this.setState({ currentUser: null});
     }
   }.bind(this));
@@ -47,19 +45,17 @@ getArtworkData(data){
 }
 
 async getLoginClick(){
-    console.log("I AM A LOGIN CLICK!!! RAWRRR!!!!");
+    console.log("user requested login");
   const result = await auth().signInWithPopup(provider)
   this.setState({currentUser: result.user});
 }
 
 getLogoutClick() {
-    console.log("RAWRRR! I am a logout!");
-     const result =  auth().signOut();
-     console.log(this);
+    console.log("user requested logout");
+   auth().signOut();
 }
 
   render() {
-    let login;
     return (
     <Router>
       <div className="main">
@@ -69,7 +65,7 @@ getLogoutClick() {
         <div className="main-content-wrap">
           <Switch>
             <Route exact path="/" component={Sharewall} />
-            <Route path="/artwork/:id" component={ViewArtwork} />
+            <Route path="/artwork/:id" render={props => <ViewArtwork currentUser={this.state.currentUser} {...props} />} />
             <Route path="/post" render={props => <Post currentUser={this.state.currentUser} {...props} />} />
             <Route path="/myart" component={MyArt} />
             <Route path="/documentation" component={Documentation} />

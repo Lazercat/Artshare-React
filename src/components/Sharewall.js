@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { artShareApi } from '../utils/artshare-api.js';
 import {
   Link
 } from 'react-router-dom';
@@ -45,16 +44,15 @@ render() {
            <div key={artwork._id} className="artwork">
               <img src={artwork.cloudinaryURL} alt={artwork.title} />
               <div className="text-wrap">
-                <h3><Link className="title-link" to={'/artwork/'+artwork._id}>'{artwork.title}'</Link></h3>
+                <h3>'<Link className="title-link" to={'/artwork/'+artwork._id}>{artwork.title}</Link>'</h3>
                 <h4>artist: &nbsp;{artwork.artist}</h4>
               </div>
            </div>
           )}
 
-          <div className="artwork">
-                <img src="./addnew.png" alt="add art" />
+          <div className="artwork add-wrap">
+                <img src="./addnew.png" className="add-new" alt="add art" />
                 <h4> <Link className="title-link" to={'/post'} >Add New</Link></h4>
-                <p>Add a new artwork</p>
           </div>
 
       </div>
