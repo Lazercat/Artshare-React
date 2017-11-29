@@ -1,18 +1,36 @@
 .uploadPreview {
-  width:200px;
+  max-width:150px;
+  padding:2px;
   height:auto;
-  box-shadow:2px 2px 4px #444;
 }
 
+.uploadPreview::content {
+  text: preview;
+}
+
+.submitter{
+  color: #555;
+}
+
+.disabled {
+  border: none;
+  box-shadow:none;
+  word-wrap:break-word;
+  overflow: hidden;
+  font-size:10px;
+  color: #ccc;
+  font-weight:thin;
+  padding:1px;
+}
 
 .postform-wrap{
-  margin-top:10px;
   width: calc(100% / 3);
   min-width:400px;
   margin:0 24%;
 }
 
 .postArt{
+  margin-top:20px;
   margin-bottom:20px;
 }
 

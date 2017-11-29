@@ -18,6 +18,7 @@ class Documentation extends Component {
 
               <li>A back-end ArtShare Api running on Heroku that stores all data <a href="https://artshare-api.herokuapp.com">https://artshare-api.herokuapp.com</a></li>
               <li>A Cloudinary API that handles and stores all image files</li>
+              <li>Unique accounts with Facebook Login provided through Firebase DB Authentication</li>
               <li>A front-end web application running on Heroku written in React.js (this website)</li>
               <li>Users can upload art to Cloudinary and post data to MongoDB configured via my Artshare API Node.js, Express Web App</li>
               <li>Public can view all posts that have been shared</li>
@@ -28,9 +29,12 @@ class Documentation extends Component {
             <p>What happens beyond day 7? Everything!</p>
 
             <ul>
-              <li>Unique accounts with Facebook Login</li>
               <li>Search functionality</li>
               <li>Results pagination</li>
+              <li>improved mobile navigation solution</li>
+              <li>post user data from firebase into mongoDB for user profile data and relations.</li>
+              <li>base color search</li>
+              <li>add fields for dimensions, city location, medium chosen</li>
               <li>TLS Encryption</li>
               <li>Artist Profiles</li>
               <li>Share to Facebook Graph integration</li>

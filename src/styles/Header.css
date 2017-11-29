@@ -3,6 +3,22 @@
   height: 50px;
   width: 50px;
 }
+.white{
+  color: orange;
+ }
+
+.navbar-static-top .navbar-inverse > .container-fluid{
+  background-color:#333;
+}
+
+.dropdown-menu{
+  padding:20px;
+}
+ .profile-pic{
+  width:25px;
+  height:25px;
+  border-radius:50%;
+ }
 
 .App-header {
   background-color: rgba(136, 176, 75, 1);
@@ -22,22 +38,47 @@
   background: rgba(3, 3, 3, 1);
   box-shadow:2px 2px 10px #ccc;
   border-radius:1px;
+  height:40px;
+  padding:1px;
 }
 
 .artShare-brand a{
   color: white;
 }
 
-
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-
 .navbar-nav > li > a, .navbar-brand {
     padding-top:4px !important;
     padding-bottom:0 !important;
-    height: 28px;
+
 }
 .navbar {min-height:28px !important;}
+
+.navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-brand{
+  color:white;
+}
+.navbar-inverse .navbar-brand:hover{
+  color:green;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover{
+  color: lightgrey;
+  background-color: #222;
+}
+.navbar-static-top  {
+  height:35px;
+
+  padding: 2px 4px;
+}
+a .dropdown-toggle{
+  cursor: pointer;
+}
+.navbar-static-top >img {
+  margin-right:4px;
+
+  box-shadow:1px 1px 2px white;
+}

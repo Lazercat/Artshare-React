@@ -31,7 +31,6 @@ componentDidMount() {
       this.setState({
         artworkData: thisData.length > 0 ? thisData[0] : {},
       });
-      console.log(this.state.artworkData);
     })
     .catch(function (error) {
       console.log(error);

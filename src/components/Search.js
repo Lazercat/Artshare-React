@@ -7,18 +7,13 @@ class Search extends Component {
 constructor(props){
   super(props);
   this.state = {
-    user: null,
-
+    currentUser: null,
   }
 }
 render() {
     return (
-      <div className="myArt">
-         <Header/>
-          <div>
-            <h1> Hi i am your Search yo  </h1>
-          </div>
-         <Footer />
+      <div className="Search">
+            <h1>Hi i am your Search yo</h1>
       </div>
     );
   }

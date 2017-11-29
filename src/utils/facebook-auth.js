@@ -1,9 +1,15 @@
-/* JS FOR FACEBOOK OAUTH HERE */
+import firebase from 'firebase';
 
-//TODO: Establish FB LOGIN Connection
+  var config = {
+    apiKey: "AIzaSyBdXuwm2NXf2BVl3qrwvWjq1460mUfB-u4",
+    authDomain: "artshare-local.firebaseapp.com",
+    databaseURL: "https://artshare-local.firebaseio.com",
+    storageBucket: "artshare-local.appspot.com",
+    messagingSenderId: "688790141056"
+  };
 
+  firebase.initializeApp(config);
 
-//REVIEW HOW YOU DID IT WITH MyTravels and how it could be
-// translated to here then you end up with a user
-// Passport is what does that for you
-// is passport compatible with REACT?
+export const ref = firebase.database().ref()
+export const auth = firebase.auth
+export const provider = new firebase.auth.FacebookAuthProvider();

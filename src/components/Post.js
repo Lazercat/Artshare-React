@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { artShareApi } from '../utils/artshare-api.js';
+import firebase from 'firebase';
+import { auth, provider } from '../utils/facebook-auth.js';
 import Dropzone from 'react-dropzone';
 import {
-  BrowserRouter as Router,
   Link
 } from 'react-router-dom';
 import '../App.css';
@@ -13,13 +13,14 @@ class Post extends Component {
   constructor(props){
     super(props);
     this.state = {
-      user: null,
+      currentUser: '',
       formstate: 'new',
       title: '',
       description: '',
       cloudinaryURL: '',
       artist: '',
       tags: '',
+      firebaseId: '',
       processing: false,
       result: 'new',
   }
@@ -27,6 +28,30 @@ class Post extends Component {
   this.submitMore = this.submitMore.bind(this);
 }
 
+
+async componentWillMount() {
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) { this.setState({ currentUser: user});
+       } else { this.setState({ currentUser: null});
+    }
+  }.bind(this));
+
+
+}
+
+async login() {
+  const result = await auth().signInWithPopup(provider)
+  this.setState({currentUser: result.user});
+}
+
+logout() {
+ const result=  auth().signOut()
+  this.setState({user: null});
+}
+
+
+//HANDLING A FILE DROP TO CLOUDINARY
 handleDrop = files => {
   // Push all the axios request promise into a single array
   const uploaders = files.map(file => {
@@ -52,13 +77,16 @@ handleDrop = files => {
     })
   });
 
-  // Once all the files are uploaded
+  // TODO: any follow ups? Once all the files are uploaded
 //   axios.all(uploaders).then(() => {
 //     // ... perform after upload is successful operation
 
 // });
 }
 
+
+
+// SEND DATA OF POST TO ARTSHARE API TO POST TO MONGODB WITH A FETCH PROMISE
 handleSubmit(event){
    this.setState({ processing: true });
    console.log('handlesubmit 1) ' + this.state.processing + this.state.result);
@@ -66,7 +94,7 @@ handleSubmit(event){
      this.setState({
         formstate: 'submitted',
       })
-    fetch( 'https://artshare-api.herokuapp.com/user/5a14951afe8c7b0014d2b8c1/artwork', {
+    fetch( 'https://artshare-api.herokuapp.com/artwork', {
       method: 'post',
       mode: 'cors',
       headers: {
@@ -77,7 +105,8 @@ handleSubmit(event){
         title: this.state.title,
         description: this.state.description,
         cloudinaryURL: this.state.cloudinaryURL,
-        artist: this.state.artist,
+        artist: this.state.currentUser.displayName,
+        firebaseId: this.state.currentUser.uid,
         tags: this.state.tags,
       }),
     })
@@ -107,17 +136,34 @@ submitMore(){
 render() {
   let confirmSubmit;
   const { result, processing } = this.state;
+  const {currentUser} = this.state;
 
-  if (result === 'success') {
+
+  if (currentUser===null){
+  return(
+    <div className="logins">
+      <h1>Post art!</h1>
+      <p> Sign in with Facebook to post art! </p>
+
+      <button onClick={this.login.bind(this)}>
+        Login with Facebook
+      </button>
+    </div>
+  )
+};
+
+
+
+  if (result === 'success' && currentUser !== null) {
     return <div className="success">
               <h1>Success!</h1>
-              <p> Your art has been shared!</p>
+              <p>Your art has been shared!</p>
               <Link to="/"> View Art </Link>
               <Link to='/post'> Share more art!</Link>
             </div>;
   }
 
-  else if (result ==='error'){
+  else if (result ==='error' && currentUser !== null){
     return <div className="failure">
               <h1>Ooops!</h1>
               <p>An unexpected error has occurred.</p>
@@ -127,21 +173,23 @@ render() {
   }
 
 
-  else if (result === 'new'){
+  else if (result === 'new' && currentUser !== null){
   return (
      <div className="postArt">
         <div className="form-style-10">
+
+
             <div className="post-container">
                   <div className="postform-wrap">
                         <form className="postform" onSubmit={this.handleSubmit} >
 
                         <div className="drop-container">
-                        <label> Art Photo</label>
+                        <label> Art Photo (required)</label>
                               <Dropzone
                                 onDrop={this.handleDrop}
                                 multiple
                                 accept="image/*"
-                                style={{"width" : "40%", "marginBottom" : "15px", "color": "white", "float": "left", "cursor" : "pointer", "background" : "rgba(136, 176, 75, 1)", "padding":"15px", "height" : "100px", "border" : "3px dashed teal", "boxShadow" : "1px 1px 3px #333"}}>
+                                style={{"width" : "40%", "marginBottom" : "5px", "color": "white", "float": "left", "cursor" : "pointer", "background" : "rgba(136, 176, 75, 1)", "padding":"7px", "height" : "auto", "border" : "2px dashed teal", "boxShadow" : "2px 2px 4px #333"}}>
                                  {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
                                   if (isDragActive) {
                                     return "This file is authorized";
@@ -158,25 +206,31 @@ render() {
                         </div>
 
 
-                        <input hidden
+                        <input disabled className="disabled"
                           onChange={ (evt) => { this.setState({ cloudinaryURL: evt.target.value}); }}
                           value={ this.state.cloudinaryURL }
                           placeholder="http://www.your-photo.com..." type="text" name="cloudinaryURL"
                         />
 
-                        <label> Title
-                        <input
+                        <label> Title (required)
+                        <input required
                           onChange={ (evt) => { this.setState({ title: evt.target.value}); }}
                           value={ this.state.title }
                           placeholder="name of artwork" type="text" name="title"
                         /></label><br />
 
-                        <label> Artist
-                        <input
+                        <input hidden
                           onChange={ (evt) => { this.setState({ artist: evt.target.value}); } }
-                          value={ this.state.artist }
+                          value={ this.state.currentUser.displayName }
                           placeholder="original artist" type="text" name="artist"
-                        /></label><br />
+                        />
+
+                         <input hidden
+                          onChange={ (evt) => { this.setState({ firebaseId: evt.target.value}); } }
+                          value={ this.state.currentUser.uid }
+                          placeholder="firebaseUserId" type="text" name="firebaseId"
+                        />
+
 
                         <label> Search Tags
                         <input
@@ -193,6 +247,9 @@ render() {
                           placeholder="describe your art here." type="text" name="description"
                           ></textarea></label><br />
 
+                          <label> submission by:
+                          <div className="submitter">{ this.state.currentUser.displayName }</div>
+                          </label>
 
 
                         <div className="button-wrap">
