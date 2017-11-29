@@ -5,11 +5,9 @@
   height:28px;
   width:100%;
   color:white;
-  border-top: 1px solid #333;
   padding:1px;
-  background-color: #333;/*rgba(136, 176, 75, 1);*/
   border-top:4px solid #fff;
-
+  background:#333;
 }
 
 .Footer > a{
@@ -21,3 +19,4 @@
   font-size:25px;
   text-decoration:underline dotted;
 }
+

@@ -171,7 +171,6 @@ render() {
   else if (result === 'new' && currentUser !== null){
   return (
      <div className="postArt">
-        <div className="form-style-10">
 
             <div className="post-container">
                   <div className="postform-wrap">
@@ -237,7 +236,7 @@ render() {
                     </form></div>
                   </div>
         </div>
-     </div>
+
     ); }
   }
 }

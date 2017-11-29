@@ -42,7 +42,7 @@ render() {
       <div className="container">
         <div className="navbar-brand">
           <img src="/color-star-3-217610/color-star-3-48-217610.png" className="App-logo" alt="logo" width="48" height="48" alt="" />
-          <NavLink className="navbar-brand artShare-brand" exact to="/">ArtShare</NavLink>{' '}
+          <NavLink className="navbar-brand artShare-brand" exact to="/">ArtShare(beta)</NavLink>{' '}
         </div>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -82,7 +82,7 @@ render() {
       <div className="container">
         <div className="navbar-brand" href="#">
           <img src="/color-star-3-217610/color-star-3-64-217610.png" className="App-logo" alt="logo"  alt="" />
-          <NavLink className="navbar-brand artShare-brand" exact to="/">ArtShare</NavLink>{' '}
+          <NavLink className="navbar-brand artShare-brand" exact to="/">ArtShare(beta)</NavLink>{' '}
         </div>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>

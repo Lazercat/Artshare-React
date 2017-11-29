@@ -39,8 +39,15 @@
   color: white;
 }
 
-.artShare-brand a{
+.artShare-brand a, .navbar-brand{
   color: white;
+
+}
+
+
+/* ANIMATIONS */
+.navbar-animated {
+
 }
 
 @keyframes App-logo-spin {

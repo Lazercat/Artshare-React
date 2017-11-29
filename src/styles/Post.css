@@ -24,14 +24,21 @@
 }
 
 .postform-wrap{
-  width: calc(100% / 3);
-  min-width:400px;
-  margin:0 24%;
+  margin:0 auto;
+
 }
 
 .postArt{
   margin-top:20px;
   margin-bottom:20px;
+  display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 form.postform{

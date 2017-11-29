@@ -36,7 +36,7 @@
 
 
 /* The Modal (background) */
-.modal {
+.art-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1000; /* Sit on top */
