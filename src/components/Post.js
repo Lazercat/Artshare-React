@@ -76,7 +76,10 @@ handleDrop = files => {
 // });
 }
 
-
+handleLogin(evt){
+  evt.preventDefault();
+  this.props.getLoginClick();
+}
 
 // SEND DATA OF POST TO ARTSHARE API TO POST TO MONGODB WITH A FETCH PROMISE
 handleSubmit(event){
@@ -128,6 +131,7 @@ submitMore(){
 render() {
   const { result, processing } = this.state;
   const {currentUser} = this.state;
+  let handleLogin;
 
 
   if (currentUser===null){
@@ -136,7 +140,7 @@ render() {
       <h1>Post art!</h1>
       <p> Sign in with Facebook to post art! </p>
 
-      <button onClick={this.login.bind(this)}>
+      <button onClick={this.handleLogin.bind(this)}>
         Login with Facebook
       </button>
     </div>
@@ -169,7 +173,6 @@ render() {
      <div className="postArt">
         <div className="form-style-10">
 
-
             <div className="post-container">
                   <div className="postform-wrap">
                         <form className="postform" onSubmit={this.handleSubmit} >
@@ -180,7 +183,7 @@ render() {
                                 onDrop={this.handleDrop}
                                 multiple
                                 accept="image/*"
-                                style={{"width" : "40%", "marginBottom" : "5px", "color": "white", "float": "left", "cursor" : "pointer", "background" : "rgba(136, 176, 75, 1)", "padding":"7px", "height" : "auto", "border" : "2px dashed teal", "boxShadow" : "2px 2px 4px #333"}}>
+                                style={{"width" : "40%", "marginBottom" : "5px", "color": "white", "float": "left", "cursor" : "pointer", "background" : "teal", "padding":"7px", "height" : "auto", "border" : "2px dashed teal", "boxShadow" : "2px 2px 4px #333"}}>
                                  {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
                                   if (isDragActive) {
                                     return "This file is authorized";
@@ -225,13 +228,6 @@ render() {
                           placeholder="describe your art here." type="text" name="description"
                           ></textarea></label><br />
 
-                          <label> Art by:
-                          <div className="submitter">{ this.props.currentUser !== undefined ? this.props.currentUser.displayName : 'Monkeys.. uid'}</div>
-                          </label>
-
-                         <label> Artist firebase user id
-                         <div className="submitter"> { this.props.currentUser !== undefined ? this.props.currentUser.uid : 'Monkeys.. uid'}</div>
-                        </label>
 
 
 

@@ -66,7 +66,7 @@ getLogoutClick() {
           <Switch>
             <Route exact path="/" component={Sharewall} />
             <Route path="/artwork/:id" render={props => <ViewArtwork currentUser={this.state.currentUser} {...props} />} />
-            <Route path="/post" render={props => <Post currentUser={this.state.currentUser} {...props} />} />
+            <Route path="/post" render={props => <Post currentUser={this.state.currentUser}  getLoginClick={ this.getLoginClick }  {...props} />} />
             <Route path="/myart" component={MyArt} />
             <Route path="/documentation" component={Documentation} />
             <Route path="*" component={NotFound} />

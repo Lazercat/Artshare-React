@@ -29,8 +29,13 @@
   max-width:100px;
 
 }
+
 .text-wrap{
   margin-top:25px;
+}
+.searchTerm {
+  max-width:400px;
+  min-width: 200px;
 }
 
 .artwork > img {
