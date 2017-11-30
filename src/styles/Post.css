@@ -3,8 +3,8 @@
   padding:15px;
   height:auto;
   font-size:10px;
-  color: #999;
-  background-color:#ccc;
+  color: #555;
+  background-color:#eee;
   min-width:70px;
   min-height:69px;
   float:left;
@@ -63,11 +63,16 @@ form.postform{
   width: calc(100%/3);
   height:25px;
   margin:0 24%;
-  color: white;
-  background-color: teal;
+  color: #333;
   text-align:center;
   box-shadow:1px 1px 5px teal;
   padding:2px;
+}
+
+.button-wrap > button:hover {
+  cursor:pointer;
+  background-color: teal;
+  color:white;
 }
 
 input {

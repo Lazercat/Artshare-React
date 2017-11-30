@@ -106,9 +106,9 @@ submitMore(){
 
 render() {
   const { result, processing } = this.state;
-  const {currentUser} = this.state;
+  const { currentUser }  = this.state;
 
-  if (currentUser === null){
+  if (this.props.currentUser === null){
   return(
     <div className="logins">
       <h1>Post art!</h1>
@@ -121,7 +121,7 @@ render() {
   )
 };
 
-  if (result === 'success' && currentUser !== null) {
+  if (result === 'success' && this.props.currentUser !== null) {
     return <div className="success">
               <h1>Success!</h1>
               <p>Your art has been shared!</p>
@@ -130,7 +130,7 @@ render() {
             </div>;
   }
 
-  else if (result ==='error' && currentUser !== null){
+  else if (result ==='error' && this.props.currentUser !== null){
     return <div className="failure">
               <h1>Ooops!</h1>
               <p>An unexpected error has occurred.</p>
@@ -139,7 +139,7 @@ render() {
            </div>;
   }
 
-  else if (result === 'new' && currentUser !== null){
+  else if (result === 'new' && this.props.currentUser !== null){
   return (
   <div className="postArt">
 
@@ -152,7 +152,7 @@ render() {
                           <Dropzone
                             onDrop={this.handleDrop}
                             accept="image/*"
-                            style={{"width" : "40%", "marginBottom" : "5px", "color": "white", "float": "left", "cursor" : "pointer", "background" : "teal", "padding":"7px", "height" : "auto", "border" : "2px dashed teal", "boxShadow" : "2px 2px 4px #333"}}>
+                            style={{"width" : "40%", "marginBottom" : "5px", "color": "#333", "float": "left", "cursor" : "pointer", "background" : "white", "padding":"7px", "height" : "auto", "border" : "2px dashed #333", "boxShadow" : "1px 1px 2px teal"}}>
                              {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
                               if (isDragActive) {
                                 return "This file is authorized";

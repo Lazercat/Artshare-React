@@ -12,7 +12,7 @@ constructor(props){
   this.state = {
     users: [],
     artworks: [],
-    currentuser: null,
+    currentUser: null,
     artwork: null,
     activeSearchTerm: '',
   }
@@ -81,7 +81,7 @@ render() {
 
             {artFilter}
 
-          <div className="artwork add-wrap">
+           <div className="artwork add-wrap">
                 <img src="./addnew.png" className="add-new" alt="add art" />
                 <h4> <Link className="title-link" to={'/post'} >Add New</Link></h4>
           </div>
