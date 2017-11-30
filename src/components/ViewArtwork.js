@@ -46,7 +46,6 @@ componentDidMount() {
     axios.get('https://artshare-api.herokuapp.com/artwork/'+this.props.match.params.id)
     .then( (result) => {
       const thisData = result.data;
-      console.log(thisData);
       this.setState({
         artworkData: thisData.length > 0 ? thisData[0] : {},
       });
@@ -57,8 +56,6 @@ componentDidMount() {
 }
 
 render() {
-  console.log(this.state);
-
   const theData = this.state.artworkData;
     if (Object.keys(theData).length > 0 && theData.constructor === Object){ // make sure it's a valid object
      let created = theData.createdOn.slice(0, 9);

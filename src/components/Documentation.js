@@ -15,7 +15,7 @@ class Documentation extends Component {
             <h3>MVP Features </h3>
             <p>This web application was built and completed in 7 days with the following features.</p>
             <ul>
-
+              <li>Search functionality</li>
               <li>A back-end ArtShare Api running on Heroku that stores all data <a href="https://artshare-api.herokuapp.com">https://artshare-api.herokuapp.com</a></li>
               <li>A Cloudinary API that handles and stores all image files</li>
               <li>Unique accounts with Facebook Login provided through Firebase DB Authentication</li>
@@ -29,7 +29,6 @@ class Documentation extends Component {
             <p>What happens beyond day 7? Everything!</p>
 
             <ul>
-              <li>Search functionality</li>
               <li>Results pagination</li>
               <li>improved mobile navigation solution</li>
               <li>post user data from firebase into mongoDB for user profile data and relations.</li>

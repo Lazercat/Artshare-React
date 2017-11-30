@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Sharewall from './Sharewall.js';
 import Post from './Post.js';
-import MyArt from './MyArt.js'
 import NotFound from './NotFound.js';
 import ViewArtwork from './ViewArtwork.js';
 import Documentation from './Documentation.js';
@@ -45,13 +44,11 @@ getArtworkData(data){
 }
 
 async getLoginClick(){
-    console.log("user requested login");
   const result = await auth().signInWithPopup(provider)
   this.setState({currentUser: result.user});
 }
 
 getLogoutClick() {
-    console.log("user requested logout");
    auth().signOut();
 }
 
@@ -67,7 +64,6 @@ getLogoutClick() {
             <Route exact path="/" component={Sharewall} />
             <Route path="/artwork/:id" render={props => <ViewArtwork currentUser={this.state.currentUser} {...props} />} />
             <Route path="/post" render={props => <Post currentUser={this.state.currentUser}  getLoginClick={ this.getLoginClick }  {...props} />} />
-            <Route path="/myart" component={MyArt} />
             <Route path="/documentation" component={Documentation} />
             <Route path="*" component={NotFound} />
           </Switch>

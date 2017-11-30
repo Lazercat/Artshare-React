@@ -1,9 +1,15 @@
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 50px;
-  width: 50px;
-  margin-right:2px;
+  height: 40px;
+  width: 40px;
+  position:relative;
 }
+.artShare-brand a, .navbar-brand{
+  font-size: 25px;
+  position: relative;
+  text-shadow:  1px 1px 2px #555;
+}
+
 .white{
   color: orange;
  }
@@ -39,10 +45,6 @@
   color: white;
 }
 
-.artShare-brand a, .navbar-brand{
-  color: white;
-
-}
 
 
 /* ANIMATIONS */

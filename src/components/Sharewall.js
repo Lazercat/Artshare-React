@@ -48,7 +48,7 @@ render() {
            </div>
           )
 
-    } else if (this.state.activeSearchTerm == null || this.state.keyword == undefined) {
+    } else if (this.state.activeSearchTerm === null || this.state.keyword === undefined) {
      artFilter = this.state.artworks.map(artwork =>
            <div key={artwork._id} className="artwork">
               <img src={artwork.cloudinaryURL} alt={artwork.title} />

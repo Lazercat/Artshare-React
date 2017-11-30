@@ -3,7 +3,7 @@ import '../App.css';
 import '../styles/Header.css'
 import '../styles/Main.css';
 import {
-  BrowserRouter as Router,
+  Link,
   NavLink
 } from 'react-router-dom';
 
@@ -81,7 +81,7 @@ render() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div className="container">
         <div className="navbar-brand" href="#">
-          <img src="/color-star-3-217610/color-star-3-64-217610.png" className="App-logo" alt="logo"  alt="" />
+          <Link to="/"> <img src="/color-star-3-217610/color-star-3-64-217610.png" className="App-logo" alt="logo" /></Link>
           <NavLink className="navbar-brand artShare-brand" exact to="/">ArtShare(beta)</NavLink>{' '}
         </div>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
