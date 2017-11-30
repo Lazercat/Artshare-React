@@ -110,6 +110,7 @@ render() {
 
   if (this.props.currentUser === null){
   return(
+   <div className="postArt">
     <div className="logins">
       <h1>Post art!</h1>
       <p> Sign in with Facebook to post art! </p>
@@ -118,25 +119,32 @@ render() {
         Login with Facebook
       </button>
     </div>
+  </div>
   )
 };
 
   if (result === 'success' && this.props.currentUser !== null) {
-    return <div className="success">
+    return
+        <div className="postArt">
+         <div className="success">
               <h1>Success!</h1>
               <p>Your art has been shared!</p>
-              <Link to="/"> View Art </Link>
+              <Link to="/"> View Art </Link><br />
               <Link to='/post'> Share more art!</Link>
-            </div>;
+            </div>
+        </div>
   }
 
   else if (result ==='error' && this.props.currentUser !== null){
-    return <div className="failure">
+    return
+    <div className="postArt">
+      <div className="failure">
               <h1>Ooops!</h1>
               <p>An unexpected error has occurred.</p>
               <Link to="/">View Art</Link>
               <Link to='/post'>Share more art!</Link>
-           </div>;
+           </div>
+        </div>
   }
 
   else if (result === 'new' && this.props.currentUser !== null){

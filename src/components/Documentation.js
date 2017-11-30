@@ -4,12 +4,15 @@ import '../styles/Documentation.css';
 class Documentation extends Component {
   render() {
     return (
+
+    <div className="about">
       <div className="documentation">
 
           <div>
             <h1> About ArtShare</h1>
-            <p> ArtShare is a capstone project created, owned and maintained by Jesse Lewis, a fellow at General Assembly in Austin, TX.
-                The code is available for view at Github.com, however I reserve the rights to this product.
+            <p>
+              ArtShare is a capstone project created, owned and maintained by Jesse Lewis, a fellow at General Assembly in Austin, TX.
+              The code is available for view at Github.com, however I reserve the rights to this product.
             </p>
 
             <h3>MVP Features </h3>
@@ -45,6 +48,7 @@ class Documentation extends Component {
           </div>
 
       </div>
+    </div>
     );
   }
 }

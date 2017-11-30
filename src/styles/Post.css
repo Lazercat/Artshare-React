@@ -29,19 +29,18 @@
 
 .postform-wrap{
   margin:0 auto;
-
 }
 
 .postArt{
   margin-top:20px;
   margin-bottom:20px;
-          display: -webkit-box;
-          display: -moz-box;
-          display: -ms-flexbox;
-          display: -webkit-flex;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 form.postform{
