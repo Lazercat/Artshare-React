@@ -17,9 +17,7 @@ class Documentation extends Component {
 
 
             <h3>Solution Architecture</h3>
-            <img className="solution" src="https://artshare-react.herokuapp.com/art-arch.png" alt="ArtShare architecture"/>
-
-
+            <img className="solution" src="https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=artshare%20Architecture.png#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FLazercat%2FArtshare-API%2Fmaster%2Fartshare%2520Architecture.png" alt="ArtShare architecture"/>
 
 
             <h3>MVP Features </h3>
