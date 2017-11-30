@@ -45,16 +45,18 @@ handleDrop = files => {
     }).then(response => {
       const data = response.data;
       const fileURL = data.secure_url // You should store this URL for future references in your app
+      console.log(data);
             this.setState({
               cloudinaryURL: fileURL
             })
     })
   });
 
-    // TODO: any follow ups? Once all the files are uploaded
-    //   axios.all(uploaders).then(() => {
-    //     // ... perform after upload is successful operation
-    //   });
+// TODO: any follow ups? Once all the files are uploaded
+//   axios.all(uploaders).then(() => {
+//     // ... perform after upload is successful operation
+//   });
+
 }
 
 handleLogin(evt){
@@ -65,6 +67,7 @@ handleLogin(evt){
 // SEND DATA OF POST TO ARTSHARE API TO POST TO MONGODB WITH A FETCH PROMISE
 handleSubmit(event){
    this.setState({ processing: true });
+   console.log('handlesubmit 1) ' + this.state.processing + this.state.result);
     event.preventDefault();
      this.setState({
         formstate: 'submitted',
@@ -87,11 +90,15 @@ handleSubmit(event){
     })
     .then(response => {
       if (response.status >= 200 && response.status < 300) {
+        console.log(response);
         this.setState({ processing: false, result: 'success' });
+        console.log('handlesubmit success) ' + this.state.processing + this.state.result);
       } else {
         const error = new Error(response.statusText);
         error.response = response;
+        console.log(JSON.stringify(error));
         this.setState({ processing: false, result: 'error'});
+        console.log('handlesubmit error) ' + this.state.processing + this.state.result);
         throw error;
       }
     })
@@ -106,11 +113,10 @@ submitMore(){
 
 render() {
   const { result, processing } = this.state;
-  const { currentUser }  = this.state;
+  const {currentUser} = this.state;
 
   if (this.props.currentUser === null){
   return(
-   <div className="postArt">
     <div className="logins">
       <h1>Post art!</h1>
       <p> Sign in with Facebook to post art! </p>
@@ -119,98 +125,94 @@ render() {
         Login with Facebook
       </button>
     </div>
-  </div>
   )
 };
 
+
+
   if (result === 'success' && this.props.currentUser !== null) {
-    return
-        <div className="postArt">
-         <div className="success">
+    return <div className="success">
               <h1>Success!</h1>
               <p>Your art has been shared!</p>
-              <Link to="/"> View Art </Link><br />
+              <Link to="/"> View Art </Link>
               <Link to='/post'> Share more art!</Link>
             </div>
-        </div>
   }
 
   else if (result ==='error' && this.props.currentUser !== null){
-    return
-    <div className="postArt">
-      <div className="failure">
+    return <div className="failure">
               <h1>Ooops!</h1>
               <p>An unexpected error has occurred.</p>
               <Link to="/">View Art</Link>
               <Link to='/post'>Share more art!</Link>
            </div>
-        </div>
   }
+
 
   else if (result === 'new' && this.props.currentUser !== null){
   return (
-  <div className="postArt">
+     <div className="postArt">
 
-        <div className="post-container">
-            <div className="postform-wrap">
-                <form className="postform" onSubmit={this.handleSubmit} >
+            <div className="post-container">
+                  <div className="postform-wrap">
+                        <form className="postform" onSubmit={this.handleSubmit} >
 
-                    <div className="drop-container">
-                    <label> Art Photo (required)</label>
-                          <Dropzone
-                            onDrop={this.handleDrop}
-                            accept="image/*"
-                            style={{"width" : "40%", "marginBottom" : "5px", "color": "#333", "float": "left", "cursor" : "pointer", "background" : "white", "padding":"7px", "height" : "auto", "border" : "2px dashed #333", "boxShadow" : "1px 1px 2px teal"}}>
-                             {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
-                              if (isDragActive) {
-                                return "This file is authorized";
-                              }
-                              if (isDragReject) {
-                                return "This file type is not authorized";
-                              }
-                              return acceptedFiles.length || rejectedFiles.length
-                                ? `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} file`
-                                : "Drag and Drop or click here to upload art image.";
-                            }}
-                          </Dropzone>
-                          <img className="uploadPreview" src={this.state.cloudinaryURL} alt="upload photo preview"/>
-                    </div>
+                        <div className="drop-container">
+                        <label> Art Photo (required)</label>
+                              <Dropzone
+                                onDrop={this.handleDrop}
+                                multiple
+                                accept="image/*"
+                                style={{"width" : "40%", "marginBottom" : "5px", "color": "#333", "float": "left", "cursor" : "pointer", "background" : "white", "padding":"7px", "height" : "auto", "border" : "2px dashed #333", "boxShadow" : "px 1px 2px teal"}}>
+                                {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
+                                  if (isDragActive) {
+                                    return "This file is authorized";
+                                  }
+                                  if (isDragReject) {
+                                    return "This file type is not authorized";
+                                  }
+                                  return acceptedFiles.length || rejectedFiles.length
+                                    ? `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`
+                                    : "Drag and Drop or click here to upload art image.";
+                                }}
+                              </Dropzone>
+                                    <img className="uploadPreview" src={this.state.cloudinaryURL} />
+                        </div>
 
-                    <input disabled className="disabled"
-                      onChange={ (evt) => { this.setState({ cloudinaryURL: evt.target.value}); }}
-                      value={ this.state.cloudinaryURL }
-                      placeholder="http://www.your-photo.com..." type="text" name="cloudinaryURL"
-                    />
+                        <input disabled className="disabled"
+                          onChange={ (evt) => { this.setState({ cloudinaryURL: evt.target.value}); }}
+                          value={ this.state.cloudinaryURL }
+                          placeholder="http://www.your-photo.com..." type="text" name="cloudinaryURL"
+                        />
 
-                    <label> Title (required)
-                    <input required
-                      onChange={ (evt) => { this.setState({ title: evt.target.value}); }}
-                      value={ this.state.title }
-                      placeholder="name of artwork" type="text" name="title"
-                    /></label><br />
+                        <label> Title (required)
+                        <input required
+                          onChange={ (evt) => { this.setState({ title: evt.target.value}); }}
+                          value={ this.state.title }
+                          placeholder="name of artwork" type="text" name="title"
+                        /></label><br />
 
-                    <label> Search Tags
-                    <input
-                      onChange={ (evt) => { this.setState({ tags: evt.target.value}); }}
-                      value={ this.state.tags }
-                      placeholder="tags of artwork" type="text" name="tags"
-                    /></label><br />
+                        <label> Search Tags
+                        <input
+                          onChange={ (evt) => { this.setState({ tags: evt.target.value}); }}
+                          value={ this.state.tags }
+                          placeholder="tags of artwork" type="text" name="tags"
+                        /></label><br />
 
+                          <label> Description
+                        <textarea
+                          onChange={ (evt) => { this.setState({ description: evt.target.value}); } }
+                          value={ this.state.description }
+                          placeholder="describe your art here." type="text" name="description"
+                          ></textarea></label><br />
 
-                      <label> Description
-                    <textarea
-                      onChange={ (evt) => { this.setState({ description: evt.target.value}); } }
-                      value={ this.state.description }
-                      placeholder="describe your art here." type="text" name="description"
-                    ></textarea></label><br />
+                        <div className="button-wrap">
+                          <button type="Submit">Post Art!</button>
+                        </div>
+                    </form></div>
+                  </div>
+        </div>
 
-
-                    <div className="button-wrap">
-                      <button type="Submit">Post Art!</button>
-                    </div>
-                </form></div>
-            </div>
-      </div>
     ); }
   }
 }
