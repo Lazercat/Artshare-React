@@ -176,7 +176,7 @@ render() {
                                     : "Drag and Drop or click here to upload art image.";
                                 }}
                               </Dropzone>
-                                    <img className="uploadPreview" src={this.state.cloudinaryURL} />
+                                    <img className="uploadPreview" src={this.state.cloudinaryURL} alt="preview file will appear here" />
                         </div>
 
                         <input disabled className="disabled"

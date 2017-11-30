@@ -16,11 +16,11 @@
 
 .white{
   color: orange;
- }
+}
 
  .navbar, .navbar-expand-lg, .navbar-dark, .bg-dark, .fixed-top{
   border-bottom:4px solid #fff;
- }
+}
 
  .profile-pic{
   width:30px;
@@ -28,7 +28,7 @@
   border-radius:50%;
   float:left;
   padding-top:5px;
- }
+}
 
  .profile-item{
   margin:0 auto;
@@ -36,7 +36,7 @@
   line-height: .9em;
   background:#444;
   border-radius:25%;
- }
+}
 
  .logout {
   float:right;

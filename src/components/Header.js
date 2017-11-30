@@ -85,7 +85,7 @@ render() {
       <div className="container">
         <div className="navbar-brand" href="#">
           <Link to="/"> <img src="/color-star-3-217610/color-star-3-64-217610.png" className="App-logo" alt="logo" /></Link>
-          <Link className="navbar-brand artShare-brand" exact to="/">ArtShare(beta)</Link>{' '}
+          <Link className="navbar-brand artShare-brand" to="/">ArtShare(beta)</Link>{' '}
         </div>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
