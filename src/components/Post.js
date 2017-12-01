@@ -165,32 +165,35 @@ render() {
 
 
                       <div className="row">
-                      <div className="drop-container">
-                      <label> Art Photo (required)</label>
-                            <Dropzone
-                              onDrop={this.handleDrop}
-                              multiple
-                              accept="image/*"
-                              style={{"width" : "40%", "marginBottom" : "5px", "color": "#333", "float": "left", "cursor" : "pointer", "background" : "white", "padding":"7px", "height" : "auto", "border" : "2px dashed #333", "boxShadow" : "px 1px 2px teal"}}>
-                              {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
-                                if (isDragActive) {
-                                  return "This file is authorized";
-                                }
-                                if (isDragReject) {
-                                  return "This file type is not authorized";
-                                }
-                                return acceptedFiles.length || rejectedFiles.length
-                                  ? `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`
-                                  : "Drag and Drop or click here to upload art image.";
-                              }}
-                            </Dropzone>
-                                  <img className="uploadPreview" src={this.state.cloudinaryURL} alt="preview file will appear here" />
-                      </div>
+                          <label> Art Photo (required)
+                               <div className="drop-container">
+
+                                        <Dropzone
+                                          onDrop={this.handleDrop}
+                                          multiple
+                                          accept="image/*"
+                                          style={{"width" : "210px", "marginBottom" : "5px", "color": "#333", "float": "left", "cursor" : "pointer", "background" : "white", "padding":"7px", "height" : "auto", "border" : "2px dashed #333", "boxShadow" : "px 1px 2px teal"}}>
+                                          {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
+                                            if (isDragActive) {
+                                              return "This file is authorized";
+                                            }
+                                            if (isDragReject) {
+                                              return "This file type is not authorized";
+                                            }
+                                            return acceptedFiles.length || rejectedFiles.length
+                                              ? `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`
+                                              : "Drag and Drop or click here to upload art image.";
+                                          }}
+                                        </Dropzone>
+                                   <img className="uploadPreview" src={this.state.cloudinaryURL} alt="preview file will appear here" />
+
+                              </div>
+                          </label>
                       </div>
 
 
                       <div className="row">
-                      <input disabled className="disabled"
+                      <input hidden className="disabled"
                         onChange={ (evt) => { this.setState({ cloudinaryURL: evt.target.value}); }}
                         value={ this.state.cloudinaryURL }
                         placeholder="http://www.your-photo.com..." type="text" name="cloudinaryURL"

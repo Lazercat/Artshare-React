@@ -22,12 +22,11 @@
   border-bottom:4px solid #fff;
 }
 
-.profile-item{
+.profile-item {
   margin:0 auto;
   width:92px;
   min-height:42px;
   line-height: .9em;
-  background-color:#555;
   border-radius:50%;
   padding:7px;
   position:relative;
