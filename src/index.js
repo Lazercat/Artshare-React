@@ -1,3 +1,9 @@
+/************************************
+        ARTSHARE REACT
+  Written and Owned by: Jesse Lewis
+*************************************/
+
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

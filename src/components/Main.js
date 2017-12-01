@@ -43,8 +43,8 @@ getArtworkData(data){
   });
 }
 
-async getLoginClick(){
-  const result = await auth().signInWithPopup(provider)
+getLoginClick(){
+  const result = auth().signInWithPopup(provider)
   this.setState({currentUser: result.user});
   console.log(this.state.currentUser + "I am user!");
 }

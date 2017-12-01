@@ -41,7 +41,7 @@ render() {
 
   return(
     <div className="Header">
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
         <div className="navbar-brand">
           <img src="/color-star-3-217610/color-star-3-48-217610.png" className="App-logo" alt="logo" width="48" height="48" alt="" />
@@ -81,7 +81,7 @@ render() {
   } else if(this.props.currentUser){
     return (
    <div className="Header">
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
         <div className="navbar-brand" href="#">
           <Link to="/"> <img src="/color-star-3-217610/color-star-3-64-217610.png" className="App-logo" alt="logo" /></Link>
