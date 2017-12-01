@@ -30,7 +30,7 @@ class Post extends Component {
 //HANDLING A FILE DROP TO CLOUDINARY
 handleDrop = files => {
 
-  // Push all the axios request promise into a single array
+  // Push all the request promise into a single array
   const uploaders = files.map(file => {
     const formData = new FormData();
     formData.append("file", file);
@@ -39,12 +39,12 @@ handleDrop = files => {
     formData.append("api_key", "338299128983276");
     formData.append("timestamp", (Date.now() / 1000) | 0);
 
-    // Make an AJAX upload request using Axios
+    // Make an upload request using Axios
     return axios.post("https://api.cloudinary.com/v1_1/exist-gallery/image/upload", formData, {
       headers: { "X-Requested-With": "XMLHttpRequest" },
     }).then(response => {
       const data = response.data;
-      const fileURL = data.secure_url // You should store this URL for future references in your app
+      const fileURL = data.secure_url
       console.log(data);
             this.setState({
               cloudinaryURL: fileURL
@@ -141,77 +141,76 @@ render() {
 
   else if (result ==='error' && this.props.currentUser !== null){
     return <div className="failure">
-              <h1>Ooops!</h1>
-              <p>An unexpected error has occurred.</p>
+
+              <p>An unexpected error has occurred. please try again.</p>
               <Link to="/">View Art</Link>
-              <Link to='/post'>Share more art!</Link>
+              <Link to='/post'>please try again</Link>
            </div>
   }
 
 
   else if (result === 'new' && this.props.currentUser !== null){
   return (
-     <div className="postArt">
+   <div className="postArt">
+          <div className="post-container">
+                <div className="postform-wrap">
+                      <form className="postform" onSubmit={this.handleSubmit} >
 
-            <div className="post-container">
-                  <div className="postform-wrap">
-                        <form className="postform" onSubmit={this.handleSubmit} >
+                      <div className="drop-container">
+                      <label> Art Photo (required)</label>
+                            <Dropzone
+                              onDrop={this.handleDrop}
+                              multiple
+                              accept="image/*"
+                              style={{"width" : "40%", "marginBottom" : "5px", "color": "#333", "float": "left", "cursor" : "pointer", "background" : "white", "padding":"7px", "height" : "auto", "border" : "2px dashed #333", "boxShadow" : "px 1px 2px teal"}}>
+                              {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
+                                if (isDragActive) {
+                                  return "This file is authorized";
+                                }
+                                if (isDragReject) {
+                                  return "This file type is not authorized";
+                                }
+                                return acceptedFiles.length || rejectedFiles.length
+                                  ? `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`
+                                  : "Drag and Drop or click here to upload art image.";
+                              }}
+                            </Dropzone>
+                                  <img className="uploadPreview" src={this.state.cloudinaryURL} alt="preview file will appear here" />
+                      </div>
 
-                        <div className="drop-container">
-                        <label> Art Photo (required)</label>
-                              <Dropzone
-                                onDrop={this.handleDrop}
-                                multiple
-                                accept="image/*"
-                                style={{"width" : "40%", "marginBottom" : "5px", "color": "#333", "float": "left", "cursor" : "pointer", "background" : "white", "padding":"7px", "height" : "auto", "border" : "2px dashed #333", "boxShadow" : "px 1px 2px teal"}}>
-                                {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
-                                  if (isDragActive) {
-                                    return "This file is authorized";
-                                  }
-                                  if (isDragReject) {
-                                    return "This file type is not authorized";
-                                  }
-                                  return acceptedFiles.length || rejectedFiles.length
-                                    ? `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`
-                                    : "Drag and Drop or click here to upload art image.";
-                                }}
-                              </Dropzone>
-                                    <img className="uploadPreview" src={this.state.cloudinaryURL} alt="preview file will appear here" />
-                        </div>
+                      <input disabled className="disabled"
+                        onChange={ (evt) => { this.setState({ cloudinaryURL: evt.target.value}); }}
+                        value={ this.state.cloudinaryURL }
+                        placeholder="http://www.your-photo.com..." type="text" name="cloudinaryURL"
+                      />
 
-                        <input disabled className="disabled"
-                          onChange={ (evt) => { this.setState({ cloudinaryURL: evt.target.value}); }}
-                          value={ this.state.cloudinaryURL }
-                          placeholder="http://www.your-photo.com..." type="text" name="cloudinaryURL"
-                        />
+                      <label> Title (required)
+                      <input required
+                        onChange={ (evt) => { this.setState({ title: evt.target.value}); }}
+                        value={ this.state.title }
+                        placeholder="name of artwork" type="text" name="title"
+                      /></label><br />
 
-                        <label> Title (required)
-                        <input required
-                          onChange={ (evt) => { this.setState({ title: evt.target.value}); }}
-                          value={ this.state.title }
-                          placeholder="name of artwork" type="text" name="title"
-                        /></label><br />
+                      <label> Search Tags
+                      <input
+                        onChange={ (evt) => { this.setState({ tags: evt.target.value}); }}
+                        value={ this.state.tags }
+                        placeholder="tags of artwork" type="text" name="tags"
+                      /></label><br />
 
-                        <label> Search Tags
-                        <input
-                          onChange={ (evt) => { this.setState({ tags: evt.target.value}); }}
-                          value={ this.state.tags }
-                          placeholder="tags of artwork" type="text" name="tags"
-                        /></label><br />
+                        <label> Description
+                      <textarea
+                        onChange={ (evt) => { this.setState({ description: evt.target.value}); } }
+                        value={ this.state.description }
+                        placeholder="describe your art here." type="text" name="description"
+                        ></textarea></label><br />
 
-                          <label> Description
-                        <textarea
-                          onChange={ (evt) => { this.setState({ description: evt.target.value}); } }
-                          value={ this.state.description }
-                          placeholder="describe your art here." type="text" name="description"
-                          ></textarea></label><br />
-
-                        <div className="button-wrap">
-                          <button type="Submit">Post Art!</button>
-                        </div>
-                    </form></div>
-                  </div>
-        </div>
+                      <div className="button-wrap">
+                        <button type="Submit">Post Art!</button>
+                      </div>
+                  </form></div>
+                </div>
+   </div>
 
     ); }
   }

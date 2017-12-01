@@ -36,6 +36,7 @@
 .searchTerm {
   max-width:400px;
   min-width: 200px;
+  margin:2px 2px;
 }
 
 .artwork > img {
@@ -58,6 +59,7 @@
   color: #0088cc;
   text-decoration:underline dotted;
 }
+
 
 
 .add-wrap > h4 {
