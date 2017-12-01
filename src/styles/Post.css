@@ -1,5 +1,17 @@
 
+.postArt{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.post-container {
+  max-width: 1400px;
+}
 
 
 
@@ -34,30 +46,16 @@
 }
 
 .postform-wrap{
-  margin:0 auto;
+  align-self:center;
 }
 
-.postArt{
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.post-container {
-  max-width: 1400px;
-}
 
 form.postform{
-  min-width:400px;
-  margin: 0 24%;
+  align-self: center;
 }
 
 .drop-container{
-  width:600px;
   margin-bottom:10px;
 }
 
@@ -84,6 +82,7 @@ form.postform{
 
 input {
   width:100%;
+  max-width:400px;
   height:50px;
   text-align:center;
   color:#555;
@@ -94,19 +93,20 @@ input {
 label {
   font-family:;
   width:100%;
+  max-width:400px;
   text-align:left;
   color:teal;
 }
 
 textarea {
-  width:400px;
-  height:100px;
+  width:100%;
   max-width:400px;
-  max-height:200px;
+  min-height:200px;
   color:#555;
   text-align:center;
   box-shadow:1px 1px 5px teal;
   padding:15px;
+  margin-bottom:10px;
 }
 
 .success {

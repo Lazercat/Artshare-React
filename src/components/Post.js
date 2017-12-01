@@ -131,31 +131,40 @@ render() {
 
 
   if (result === 'success' && this.props.currentUser !== null) {
-    return <div className="success">
+    return (<div className="success">
               <h1>Success!</h1>
               <p>Your art has been shared!</p>
               <Link to="/"> View Art </Link>
               <Link to='/post'> Share more art!</Link>
             </div>
+   )
   }
 
   else if (result ==='error' && this.props.currentUser !== null){
-    return <div className="failure">
+    return (<div className="failure">
 
               <p>An unexpected error has occurred. please try again.</p>
               <Link to="/">View Art</Link>
               <Link to='/post'>please try again</Link>
            </div>
+    )
   }
 
 
   else if (result === 'new' && this.props.currentUser !== null){
   return (
-   <div className="postArt">
+
+
+
+      <div className="container">
+
+
           <div className="post-container">
                 <div className="postform-wrap">
                       <form className="postform" onSubmit={this.handleSubmit} >
 
+
+                      <div className="row">
                       <div className="drop-container">
                       <label> Art Photo (required)</label>
                             <Dropzone
@@ -177,7 +186,10 @@ render() {
                             </Dropzone>
                                   <img className="uploadPreview" src={this.state.cloudinaryURL} alt="preview file will appear here" />
                       </div>
+                      </div>
 
+
+                      <div className="row">
                       <input disabled className="disabled"
                         onChange={ (evt) => { this.setState({ cloudinaryURL: evt.target.value}); }}
                         value={ this.state.cloudinaryURL }
@@ -190,26 +202,36 @@ render() {
                         value={ this.state.title }
                         placeholder="name of artwork" type="text" name="title"
                       /></label><br />
+                      </div>
 
+                      <div className="row">
                       <label> Search Tags
                       <input
                         onChange={ (evt) => { this.setState({ tags: evt.target.value}); }}
                         value={ this.state.tags }
                         placeholder="tags of artwork" type="text" name="tags"
                       /></label><br />
+                      </div>
 
-                        <label> Description
+                      <div className="row">
+                        <label> Description</label>
                       <textarea
                         onChange={ (evt) => { this.setState({ description: evt.target.value}); } }
                         value={ this.state.description }
                         placeholder="describe your art here." type="text" name="description"
-                        ></textarea></label><br />
-
+                        ></textarea><br />
+                      </div>
+                      <div className="row">
                       <div className="button-wrap">
                         <button type="Submit">Post Art!</button>
                       </div>
-                  </form></div>
-                </div>
+                      </div>
+                  </form>
+
+                  </div>
+
+
+      </div>
    </div>
 
     ); }
