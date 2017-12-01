@@ -11,10 +11,8 @@
 
 .post-container {
   max-width: 1400px;
+  min-width: calc(100%/3);
 }
-
-
-
 
 .uploadPreview {
   max-width:150px;
@@ -47,12 +45,16 @@
 
 .postform-wrap{
   align-self:center;
+  width:100%;
 }
 
 
 
-form.postform{
+.postform{
+  max-width:450px;
   align-self: center;
+  margin:0 auto;
+  padding:10px;
 }
 
 .drop-container{
@@ -66,7 +68,7 @@ form.postform{
 
 .button-wrap > button {
   width: calc(100%/3);
-  height:25px;
+  min-height:25px;
   margin:0 24%;
   color: #333;
   text-align:center;
