@@ -59,10 +59,6 @@ render() {
      let created = theData.createdOn.slice(0, 9);
       return (
         <div className="viewArtwork">
-          <div className="row content">
-              <div className="col-sm-8">
-                 <img className="viewArt" src={theData.cloudinaryURL} text={theData.title} alt={theData.title} />
-                  <p><button id="myBtn" onClick={ this.handleOpenModal }> larger view</button></p>
 
                     <div id="myModal" className="modal">
                       <div className="modal-content">
@@ -70,6 +66,11 @@ render() {
                         <span className="close">&times;</span>
                       </div>
                     </div>
+          <div className="row content">
+              <div className="col-sm-8">
+                 <img className="viewArt" src={theData.cloudinaryURL} text={theData.title} alt={theData.title} />
+                  <p><button id="myBtn" onClick={ this.handleOpenModal }> larger view</button></p>
+
               </div>
               <div className="col-sm-4">
                 <div className="well">
