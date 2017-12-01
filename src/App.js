@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Main from './components/Main.js';
 import Footer from './components/Footer.js';
-
+import MetaTags from 'react-meta-tags';
 
 class App extends Component {
 
