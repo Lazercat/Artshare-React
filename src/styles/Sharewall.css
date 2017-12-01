@@ -52,11 +52,11 @@
 }
 
 .title-link{
-  color:#2200CC;
+  color:#0088cc;
 }
 
 .title-link:hover{
-  color: #0088cc;
+  color: #2200CC;
   text-decoration:underline dotted;
 }
 
