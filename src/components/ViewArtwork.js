@@ -79,7 +79,7 @@ render() {
                      <h4>Description:&nbsp;</h4><p>{theData.description}</p>
                      <h4>Tags&nbsp;</h4><p>{theData.tags}</p>
                      <h4>Submitted</h4><p>{created}</p>
-                     <p><Link className="view-more-link" to={'/'} >[close]</Link></p>
+
                   </div>
               </div>
           </div>
