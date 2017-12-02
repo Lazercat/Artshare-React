@@ -135,7 +135,7 @@ render() {
               <h1>Success!</h1>
               <p>Your art has been shared!</p>
               <Link to="/"> View Art </Link>
-              <Link to='/post'> Share more art!</Link>
+               <Link to='/post'> Share more art!</Link>
             </div>
    )
   }
