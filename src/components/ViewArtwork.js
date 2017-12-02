@@ -95,7 +95,7 @@ render() {
           <h2>Loading..</h2>
         </div>
       )
-    } else (!this.state.processing) { // otherwise provide fallback content
+    } else {
 
       return (
         <div className="App">
@@ -103,6 +103,7 @@ render() {
         </div>
       )
     }
+  }
 
 
 
