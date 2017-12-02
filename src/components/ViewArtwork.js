@@ -53,6 +53,7 @@ componentDidMount() {
     .catch(function (error) {
       console.log(error);
     });
+    this.setState({ processing: false });
 }
 
 render() {
