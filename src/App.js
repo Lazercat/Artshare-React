@@ -16,7 +16,7 @@ class App extends Component {
       <div className="App">
          <MetaTags>
             <title>ArtShare</title>
-            <meta property="og:image" content="//artshare-react.herokuapp.com/artshare-meta.png" />
+            <meta property="og:image" content="https://artshare-react.herokuapp.com/artshare-meta.png" />
             <meta property="og:title" content="ArtShare: Share Your Art Globally!"/>
             <meta property="og:site_name" content="ArtShare"/>
             <meta property="og:url" content="https://artshare-react.herokuapp.com/" />
