@@ -48,12 +48,12 @@ componentDidMount() {
       const thisData = result.data;
       this.setState({
         artworkData: thisData.length > 0 ? thisData[0] : {},
+        processing: false,
       });
     })
     .catch(function (error) {
       console.log(error);
     });
-    this.setState({ processing: false });
 }
 
 render() {
