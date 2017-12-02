@@ -69,7 +69,6 @@ render() {
           <div className="row content">
               <div className="col-sm-8">
                  <img className="viewArt" src={theData.cloudinaryURL} text={theData.title} alt={theData.title} />
-                  <p><button id="myBtn" onClick={ this.handleOpenModal }> larger view</button></p>
 
               </div>
               <div className="col-sm-4">
@@ -79,7 +78,7 @@ render() {
                      <h4>Description:&nbsp;</h4><p>{theData.description}</p>
                      <h4>Tags&nbsp;</h4><p>{theData.tags}</p>
                      <h4>Submitted</h4><p>{created}</p>
-
+                     <p><Link className="view-more-link" to={'/'} >[close]</Link></p>
                   </div>
               </div>
           </div>
