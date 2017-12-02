@@ -145,7 +145,7 @@ render() {
 
               <p>An unexpected error has occurred. please try again.</p>
               <Link to="/">View Art</Link>
-              <Link to='/post'>please try again</Link>
+              <a href={} >please try again</Link>
            </div>
     )
   }

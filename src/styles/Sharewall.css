@@ -8,6 +8,10 @@
   max-width: 1400px;
 }
 
+.Search {
+  maring-bottom:15px;
+}
+
 .responsive-image {
   max-width: 100%;
 }

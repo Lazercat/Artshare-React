@@ -62,13 +62,12 @@ render() {
      let created = theData.createdOn.slice(0, 9);
       return (
         <div className="viewArtwork">
-
-                    <div id="myModal" className="modal">
-                      <div className="modal-content">
-                         <img className="viewArtModal" src={theData.cloudinaryURL} text={theData.title} alt={theData.title} />
-                        <span className="close">&times;</span>
-                      </div>
-                    </div>
+            <div id="myModal" className="modal">
+              <div className="modal-content">
+                 <img className="viewArtModal" src={theData.cloudinaryURL} text={theData.title} alt={theData.title} />
+                <span className="close">&times;</span>
+              </div>
+            </div>
           <div className="row content">
               <div className="col-sm-8">
                  <img className="viewArt" src={theData.cloudinaryURL} text={theData.title} alt={theData.title} />
@@ -89,7 +88,7 @@ render() {
 
 
       );
-    } else if (this.state.processing) { // otherwise provide fallback content
+    } else if (this.state.processing === true) { // otherwise provide fallback content
 
       return (
         <div className="App">
