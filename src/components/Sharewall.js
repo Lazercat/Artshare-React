@@ -6,6 +6,18 @@ import {
 import '../styles/Sharewall.css';
 import '../App.css';
 
+
+function shuffleArt(array) {
+  let i = array.length - 1;
+  for (; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
 class Sharewall extends Component {
 constructor(props){
   super(props);
@@ -22,8 +34,9 @@ componentDidMount() {
     axios.get('https://artshare-api.herokuapp.com/artworks')
     .then( (result) => {
       const artData = result.data;
+       const shuffledPosts = shuffleArt(artData);
       this.setState({
-        artworks: artData.length > 0 ? artData : [],
+        artworks: shuffledPosts.length > 0 ? shuffledPosts : [],
       });
     })
     .catch(function (error) {
