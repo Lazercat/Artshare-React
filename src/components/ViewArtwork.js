@@ -13,6 +13,7 @@ constructor(props){
   this.state = {
     currentUser: this.props.currentUser,
     artworkData: {},
+    processing: false,
   }
 }
 
@@ -41,6 +42,7 @@ handleOpenModal() {
 }
 
 componentDidMount() {
+    this.setState({ processing: true });
     axios.get('https://artshare-api.herokuapp.com/artwork/'+this.props.match.params.id)
     .then( (result) => {
       const thisData = result.data;
@@ -86,15 +88,24 @@ render() {
 
 
       );
-    } else { // otherwise provide fallback content
+    } else if (this.state.processing) { // otherwise provide fallback content
 
       return (
         <div className="App">
-          <h2>Oops!</h2>
-          <p>Our apologies. something went wrong..</p>
+          <h2>Loading..</h2>
+        </div>
+      )
+    } else (!this.state.processing) { // otherwise provide fallback content
+
+      return (
+        <div className="App">
+          <h2>Error..</h2>
         </div>
       )
     }
+
+
+
 }
 }
 
