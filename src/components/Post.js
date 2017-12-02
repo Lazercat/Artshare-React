@@ -135,7 +135,7 @@ render() {
               <h1>Success!</h1>
               <p>Your art has been shared!</p>
               <Link to="/"> View Art </Link>
-               <Link to='/post'> Share more art!</Link>
+              <Link to='/post'> Share more art!</Link>
             </div>
    )
   }
@@ -145,7 +145,7 @@ render() {
 
               <p>An unexpected error has occurred. please try again.</p>
               <Link to="/">View Art</Link>
-              <a href={} >please try again</Link>
+              <Link to='/post'>please try again</Link>
            </div>
     )
   }
