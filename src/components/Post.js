@@ -52,7 +52,7 @@ handleDrop = files => {
     })
   });
 
-// TODO: any follow ups? Once all the files are uploaded
+// TODO: any follow ups? Once all the files are uploaded..
 //   axios.all(uploaders).then(() => {
 //     // ... perform after upload is successful operation
 //   });
@@ -128,8 +128,6 @@ render() {
   )
 };
 
-
-
   if (result === 'success' && this.props.currentUser !== null) {
     return (<div className="success">
               <h1>Success!</h1>
@@ -153,17 +151,12 @@ render() {
 
   else if (result === 'new' && this.props.currentUser !== null){
   return (
-
-
-
       <div className="container">
-
 
           <div className="post-container">
                 <div className="postform-wrap">
+
                       <form className="postform" onSubmit={this.handleSubmit} >
-
-
                       <div className="row">
                           <label> Art Photo (required)
                                <div className="drop-container">

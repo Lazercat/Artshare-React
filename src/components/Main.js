@@ -44,7 +44,7 @@ getArtworkData(data){
 }
 
 getLoginClick(){
-  const result = auth().signInWithPopup(provider)
+  const result = auth().signInWithRedirect(provider)
   this.setState({currentUser: result.user});
   console.log(this.state.currentUser + "I am user!");
 }
