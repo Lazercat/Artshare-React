@@ -17,6 +17,10 @@
   text-align:left;
 }
 
+.well >label {
+  color:#333;
+}
+
 .view-more-link {
   color: #2200CC;
 }
