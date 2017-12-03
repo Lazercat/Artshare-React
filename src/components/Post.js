@@ -21,6 +21,7 @@ class Post extends Component {
       tags: '',
       firebaseId: '',
       processing: false,
+      mongoReturn:  {},
       result: 'new',
   }
   this.handleSubmit = this.handleSubmit.bind(this);
@@ -91,16 +92,17 @@ handleSubmit(files){
     })
     .then(response => {
       if (response.status >= 200 && response.status < 300) {
-        console.log('I am response' +response);
-        this.setState({ processing: false, result: 'success' });
-        console.log('handlesubmit success) ' + this.state.processing + this.state.result);
+          console.log('I am response' + response);
+          this.setState({ processing: false, result: 'success', mongoReturn: response });
+          console.log('handlesubmit success:  1) state.processing: ' + this.state.processing + ' 2) state.result ' +this.state.result+ ' 3) state.mongoReturn' + this.state.mongoReturn );
+
       } else {
-        const error = new Error(response.statusText);
-        error.response = response;
-        console.log(JSON.stringify(error));
-        this.setState({ processing: false, result: 'error'});
-        console.log('handlesubmit error) ' + this.state.processing + this.state.result);
-        throw error;
+          const error = new Error(response.statusText);
+          error.response = response;
+          console.log(JSON.stringify(error));
+          this.setState({ processing: false, result: 'error'});
+          console.log('handlesubmit error:  ' + this.state.processing + this.state.result);
+          throw error;
       }
     })
     .catch(error => { console.log('request failed', error); });
