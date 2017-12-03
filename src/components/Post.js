@@ -91,19 +91,19 @@ handleSubmit(files){
       }),
     })
     .then(response => {
-      if (response.status >= 200 && response.status < 300) {
-          console.log('I am response' + JSON.stringify(response));
-          this.setState({ processing: false, result: 'success', mongoReturn: response });
-          console.log('handlesubmit success:  1) state.processing: ' + this.state.processing + ' 2) state.result ' +this.state.result+ ' 3) state.mongoReturn' + this.state.mongoReturn );
+                      if (response.status >= 200 && response.status < 300) {
+                          console.log('I am response' + JSON.stringify(response));
+                          this.setState({ processing: false, result: 'success', mongoReturn: response });
+                          console.log('handlesubmit success:  1) state.processing: ' + this.state.processing + ' 2) state.result ' +this.state.result+ ' 3) state.mongoReturn' + JSON.stringify(this.state.mongoReturn) );
 
-      } else {
-          const error = new Error(response.statusText);
-          error.response = response;
-          console.log(JSON.stringify(error));
-          this.setState({ processing: false, result: 'error'});
-          console.log('handlesubmit error:  ' + this.state.processing + this.state.result);
-          throw error;
-      }
+                      } else {
+                          const error = new Error(response.statusText);
+                          error.response = response;
+                          console.log(JSON.stringify(error));
+                          this.setState({ processing: false, result: 'error'});
+                          console.log('handlesubmit error:  ' + this.state.processing + this.state.result);
+                          throw error;
+                      }
     })
     .catch(error => { console.log('request failed', error); });
   }
