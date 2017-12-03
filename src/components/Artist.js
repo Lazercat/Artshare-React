@@ -55,13 +55,11 @@ let artFilter;
   return (
     <div className="artist">
 
-
-
       <div className="artshare-content">
 
         <div className="artistDetails">
-         <div>Artist: [[Artist Name and Profile Coming Soon]] :)  -Jesse</div>
-         <div>Artworks: {this.state.artworkData.length}</div>
+         <div className="artistName"><h4>Artist: [[Artist Name and Profile Coming Soon]]</h4></div>
+         <div className="artworks">Artworks: {this.state.artworkData.length}</div>
          <div>more info coming..</div>
          <Link to={'/'}>return to art wall</Link>
 

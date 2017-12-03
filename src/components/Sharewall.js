@@ -81,7 +81,7 @@ let artFilter;
             id="searchTerm"
             className="searchTerm"
             name="searchTerm"
-            placeholder="Search"
+            placeholder="Search Artwork"
             onChange={ (evt) => { this.setState({ activeSearchTerm: evt.target.value }); }}
           />
         </form>
