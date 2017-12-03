@@ -75,6 +75,10 @@ let artFilter;
 
   return (
     <div className="sharewall">
+      <div className="notification">
+      <p>Welcome to the ArtShare demo site. Art submitted by developer Jesse Lewis is not claimed to be his own but is being used as placement holder to help develop and improve this site.</p>
+
+      </div>
       <div className="Search">
         <form name="searchBox" onSubmit={ this.updateSearchTerm }>
           <input
