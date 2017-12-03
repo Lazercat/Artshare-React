@@ -76,10 +76,10 @@ render() {
               <div className="col-sm-4">
                 <div className="well">
                      <h2>'{theData.title}'</h2>
-                     <label>Artist</label> <p><Link className="artist-link" to={'/artist/'+theData.firebaseId}>{theData.artist}</Link></p>
-                     <label>Description</label><p>{theData.description}</p>
-                     <label>Tags</label><p>{theData.tags}</p>
-                     <label>Submitted</label><p>{created}</p>
+                     <label><strong>Artist</strong></label> <p><Link className="artist-link" to={'/artist/'+theData.firebaseId}>{theData.artist}</Link></p>
+                     <label><strong>Description</strong></label><p>{theData.description}</p>
+                     <label><strong>Tags</strong></label><p>{theData.tags}</p>
+                     <label><strong>Submitted</strong></label><p>{created}</p>
                      <p><Link className="view-more-link" to={'/'} >[close]</Link></p>
                   </div>
               </div>
