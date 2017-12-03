@@ -13,6 +13,7 @@ class Post extends Component {
   constructor(props){
     super(props);
     this.state = {
+      artworkId: null,
       formstate: 'new',
       title: '',
       description: '',
@@ -21,7 +22,6 @@ class Post extends Component {
       tags: '',
       firebaseId: '',
       processing: false,
-      mongoReturn:  null,
       result: 'new',
   }
   this.handleSubmit = this.handleSubmit.bind(this);
@@ -90,21 +90,24 @@ handleSubmit(files){
         tags: this.state.tags,
       }),
     })
+    .then(response => response.json().then(result => {
 
-    .then(response => {
+        this.setState({ artworkId: result });
+        console.log('your artworkId is: ' + this.state.artworkId._id);
 
         if (response.status >= 200 && response.status < 300) {
-            this.setState({ processing: false, result: 'success', mongoReturn: response.body});
-            console.log('state.mongoReturn: ' + this.state.mongoReturn);
+            this.setState({ processing: false, result: 'success'});
+
 
         } else {
             const error = new Error(response.statusText);
             error.response = response;
             console.log(error);
-            this.setState({ processing: false, result: 'error', mongoReturn: error });
+            this.setState({ processing: false, result: 'error' });
             throw error;
         }
-    })
+
+      }))
     .catch(error => { console.log('request failed', error); });
 }
 
@@ -180,7 +183,7 @@ render() {
                                           if (isDragReject) {
                                             return "This file type is not authorized";
                                           }
-                                          return acceptedFiles || acceptedFiles.length || rejectedFiles.length
+                                          return acceptedFiles.length || rejectedFiles.length
                                             ? `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles} files`
                                             : "Drag and Drop or click here to upload art image.";
                                             console.log(acceptedFiles);
