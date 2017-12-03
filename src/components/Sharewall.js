@@ -56,7 +56,7 @@ let artFilter;
               <img src={artwork.cloudinaryURL} alt={artwork.title} />
               <div className="text-wrap">
                 <h3>'<Link className="title-link" to={'/artwork/'+artwork._id}>{artwork.title}</Link>'</h3>
-                <h4>artist: &nbsp;<Link className="artist-link" to={'/artist/'+artwork.firebaseId}>{artwork.artist}</Link></h4>
+                <p><strong>submitted by: &nbsp;<Link className="artist-link" to={'/artist/'+artwork.firebaseId}>{artwork.artist}</Link></strong></p>
               </div>
            </div>
           )
@@ -67,7 +67,7 @@ let artFilter;
               <img src={artwork.cloudinaryURL} alt={artwork.title} />
               <div className="text-wrap">
                 <h3>'<Link className="title-link" to={'/artist/'+artwork._id}>{artwork.title}</Link>'</h3>
-                <h4>artist: &nbsp;{artwork.artist}</h4>
+                <p><strong>artist:<Link className="artist-link" to={'/artist/'+artwork.firebaseId}>{artwork.artist}</Link></strong></p>
               </div>
            </div>
           )

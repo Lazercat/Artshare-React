@@ -55,14 +55,16 @@
   height:auto;
 }
 
-.title-link{
+.title-link, .artist-link{
   color:#0088cc;
 }
 
-.title-link:hover{
+.title-link:hover, .artist-link:hover{
   color: #2200CC;
   text-decoration:underline dotted;
 }
+
+
 
 .add-wrap > h4 {
   margin-top:15px;

@@ -8,6 +8,7 @@ import './App.css';
 import Main from './components/Main.js';
 import Footer from './components/Footer.js';
 import MetaTags from 'react-meta-tags';
+const sslRedirect = require('heroku-ssl-redirect');
 
 class App extends Component {
 
