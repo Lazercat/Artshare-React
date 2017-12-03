@@ -20,6 +20,7 @@ handleLogin(evt){
   this.props.getLoginClick();
 }
 
+
 handleLogout(evt){
   evt.preventDefault();
   this.props.getLogoutClick();
@@ -106,10 +107,13 @@ render() {
             <li className="nav-item">
               <Link className="nav-link"  to="/documentation">About ArtShare</Link>{' '}
             </li>
+
             <li className="nav-item profile-item">
              <img src={ this.props.currentUser.photoURL } className="profile-pic" alt={this.props.currentUser.displayName} />
+
              <div className="nav-userName">{ this.props.currentUser.displayName }</div>
-             <a href="#" className="nav-link logout" onClick={ this.handleLogout.bind(this)}>Logout</a>
+
+               <a href="#" className="nav-link logout" onClick={ this.handleLogout.bind(this)}>Logout</a>
             </li>
           </ul>
         </div>

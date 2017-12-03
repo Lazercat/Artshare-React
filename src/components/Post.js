@@ -65,12 +65,13 @@ handleLogin(evt){
 }
 
 // SEND DATA OF POST TO ARTSHARE API TO POST TO MONGODB WITH A FETCH PROMISE
-handleSubmit(event){
+handleSubmit(files){
    this.setState({ processing: true });
    console.log('handlesubmit 1) ' + this.state.processing + this.state.result);
-    event.preventDefault();
+    files.preventDefault();
      this.setState({
         formstate: 'submitted',
+        files: files,
       })
     fetch( 'https://artshare-api.herokuapp.com/artwork', {
       method: 'post',
@@ -90,7 +91,7 @@ handleSubmit(event){
     })
     .then(response => {
       if (response.status >= 200 && response.status < 300) {
-        console.log(response);
+        console.log('I am response' +response);
         this.setState({ processing: false, result: 'success' });
         console.log('handlesubmit success) ' + this.state.processing + this.state.result);
       } else {
@@ -109,6 +110,11 @@ submitMore(){
   this.setState({
     formstate: 'new',
   })
+}
+
+gotoSubmission(evt){
+  evt.preventDefault;
+  console.log("goToSubmit!");
 }
 
 render() {
@@ -133,7 +139,7 @@ render() {
               <h1>Success!</h1>
               <p>Your art has been shared!</p>
               <Link to="/"> View Art </Link>
-              <Link to='/post'> Share more art!</Link>
+              {/*<Link to={'/artwork/'+artwork._id}>View {artwork.title}</Link>*/}
             </div>
    )
   }
@@ -143,7 +149,6 @@ render() {
 
               <p>An unexpected error has occurred. please try again.</p>
               <Link to="/">View Art</Link>
-              <Link to='/post'>please try again</Link>
            </div>
     )
   }
@@ -157,32 +162,33 @@ render() {
                 <div className="postform-wrap">
 
                       <form className="postform" onSubmit={this.handleSubmit} >
+
                       <div className="row">
                           <label> Art Photo (required)
                                <div className="drop-container">
-
-                                        <Dropzone
-                                          onDrop={this.handleDrop}
-                                          multiple
-                                          accept="image/*"
-                                          style={{"width" : "210px", "marginBottom" : "5px", "color": "#333", "float": "left", "cursor" : "pointer", "background" : "white", "padding":"7px", "height" : "auto", "border" : "2px dashed #333", "boxShadow" : "px 1px 2px teal"}}>
-                                          {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
-                                            if (isDragActive) {
-                                              return "This file is authorized";
-                                            }
-                                            if (isDragReject) {
-                                              return "This file type is not authorized";
-                                            }
-                                            return acceptedFiles.length || rejectedFiles.length
-                                              ? `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`
-                                              : "Drag and Drop or click here to upload art image.";
-                                          }}
-                                        </Dropzone>
-                                   <img className="uploadPreview" src={this.state.cloudinaryURL} alt="preview file will appear here" />
-
+                                      <Dropzone
+                                        onDrop={this.handleDrop.bind(this)}
+                                        multiple
+                                        accept="image/*"
+                                        style={{"width" : "250px", "marginBottom" : "5px", "color": "#333", "float": "left", "cursor" : "pointer", "background" : "white", "padding":"7px", "height" : "auto", "border" : "2px dashed #333", "boxShadow" : "1px 1px 2px teal"}}>
+                                        {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
+                                          if (isDragActive) {
+                                            return "This file is authorized";
+                                          }
+                                          if (isDragReject) {
+                                            return "This file type is not authorized";
+                                          }
+                                          return acceptedFiles || acceptedFiles.length || rejectedFiles.length
+                                            ? `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles} files`
+                                            : "Drag and Drop or click here to upload art image.";
+                                            console.log(acceptedFiles);
+                                        }}
+                                      </Dropzone>
+                                      <img className="uploadPreview" src={this.state.cloudinaryURL} alt="preview file will appear here" />
                               </div>
                           </label>
                       </div>
+
 
 
                       <div className="row">

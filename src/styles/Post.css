@@ -15,6 +15,13 @@
 }
 
 .uploadPreview {
+  max-width:125px;
+  height:auto;
+  margin-left:5px;
+  text-align: center;
+}
+
+/*.uploadPreview {
   max-width:150px;
   padding:5px;
   margin-left:5px;
@@ -26,7 +33,7 @@
   min-width:70px;
   min-height:69px;
   word-wrap: break-word;
-}
+}*/
 
 .submitter{
   color: #555;
@@ -119,6 +126,6 @@ textarea {
 }
 
 .logins {
-  padding-top:240px;
+  padding-top:140px;
   min-height:50%;
 }
