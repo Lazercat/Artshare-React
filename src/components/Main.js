@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Sharewall from './Sharewall.js';
 import Post from './Post.js';
+import Artist from './Artist.js';
 import NotFound from './NotFound.js';
 import ViewArtwork from './ViewArtwork.js';
 import Documentation from './Documentation.js';
@@ -64,6 +65,7 @@ getLogoutClick() {
           <Switch>
             <Route exact path="/" component={Sharewall} />
             <Route path="/artwork/:id" render={props => <ViewArtwork currentUser={this.state.currentUser} {...props} />} />
+            <Route path="/artist/:id" render={props => <Artist currentUser={this.state.currentUser} {...props} />} />
             <Route path="/post" render={props => <Post currentUser={this.state.currentUser}  getLoginClick={ this.getLoginClick }  {...props} />} />
             <Route path="/documentation" component={Documentation} />
             <Route path="*" component={NotFound} />

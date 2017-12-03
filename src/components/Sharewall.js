@@ -45,7 +45,7 @@ componentDidMount() {
 }
 
 render() {
-  let artFilter;
+let artFilter;
 
  if(this.state.activeSearchTerm !== null){
 
@@ -56,7 +56,7 @@ render() {
               <img src={artwork.cloudinaryURL} alt={artwork.title} />
               <div className="text-wrap">
                 <h3>'<Link className="title-link" to={'/artwork/'+artwork._id}>{artwork.title}</Link>'</h3>
-                <h4>artist: &nbsp;{artwork.artist}</h4>
+                <h4>artist: &nbsp;<Link className="artist-link" to={'/artist/'+artwork.firebaseId}>{artwork.artist}</Link></h4>
               </div>
            </div>
           )
@@ -66,7 +66,7 @@ render() {
            <div key={artwork._id} className="artwork">
               <img src={artwork.cloudinaryURL} alt={artwork.title} />
               <div className="text-wrap">
-                <h3>'<Link className="title-link" to={'/artwork/'+artwork._id}>{artwork.title}</Link>'</h3>
+                <h3>'<Link className="title-link" to={'/artist/'+artwork._id}>{artwork.title}</Link>'</h3>
                 <h4>artist: &nbsp;{artwork.artist}</h4>
               </div>
            </div>
