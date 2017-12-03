@@ -98,7 +98,7 @@ handleSubmit(files){
     .then(response => {
                       if (response.status >= 200 && response.status < 300) {
                           console.log('I am response bacon' + response.json());
-                          this.setState({ processing: false, result: 'success', mongoReturn: response });
+                          this.setState({ processing: false, result: 'success', mongoReturn: response.json() });
                           console.log('handlesubmit success:  1) state.processing: ' + this.state.processing + ' 2) state.result ' +this.state.result+ ' 3) state.mongoReturn' + JSON.stringify(this.state.mongoReturn) );
 
                       } else {
