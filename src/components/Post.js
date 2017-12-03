@@ -143,8 +143,8 @@ render() {
     return (<div className="success">
               <h1>Success!</h1>
               <p>Your art has been shared!</p>
-              <Link to="/"> View Art </Link>
-              <Link to={'/artwork/'+this.state.artworkId._id}>View {artwork.title}</Link>
+              <Link to="/"> Return to Artwall </Link>
+              <Link to={'/artwork/'+this.state.artworkId._id}>View '{this.state.artworkId.title}'</Link>
             </div>
    )
   }
