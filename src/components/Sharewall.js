@@ -18,6 +18,13 @@ function shuffleArt(array) {
   return array;
 }
 
+function sortArtDate(array) {
+  let i = array.length -1;
+  for (; i > 0; i--) {
+    console.log('i am ' + array.id);
+  }
+}
+
 class Sharewall extends Component {
 constructor(props){
   super(props);
@@ -50,35 +57,38 @@ let artFilter;
  if(this.state.activeSearchTerm !== null){
 
       artFilter = this.state.artworks
-              .filter(artwork => artwork.title.indexOf(this.state.activeSearchTerm)!== -1 || artwork.tags.indexOf(this.state.activeSearchTerm)!== -1 || artwork.description.indexOf(this.state.activeSearchTerm)!== -1 || artwork.artist.indexOf(this.state.activeSearchTerm)!== -1)
-            .map(artwork =>
-           <div key={artwork._id} className="artwork">
-              <img src={artwork.cloudinaryURL} alt={artwork.title} />
-              <div className="text-wrap">
-                <h3>'<Link className="title-link" to={'/artwork/'+artwork._id}>{artwork.title}</Link>'</h3>
-                <p><strong>submitted by: &nbsp;<Link className="artist-link" to={'/artist/'+artwork.firebaseId}>{artwork.artist}</Link></strong></p>
-              </div>
-           </div>
-          )
+              .filter(artwork =>
+                artwork.title.indexOf(this.state.activeSearchTerm)!== -1 ||
+                artwork.tags.indexOf(this.state.activeSearchTerm)!== -1 ||
+                artwork.description.indexOf(this.state.activeSearchTerm)!== -1 ||
+                artwork.artist.indexOf(this.state.activeSearchTerm)!== -1)
+              .map(artwork =>
+                <div key={artwork._id} className="artwork">
+                  <img src={artwork.cloudinaryURL} alt={artwork.title} />
+                  <div className="text-wrap">
+                    <h3 className="art-title">'<Link className="title-link" to={'/artwork/'+artwork._id}>{artwork.title}</Link>'</h3>
+                    <p className="artist-title">artist:&nbsp;<Link className="artist-link" to={'/artist/'+artwork.firebaseId}>{artwork.artist}</Link></p>
+                  </div>
+                </div>
+              )
 
     } else if (this.state.activeSearchTerm === null || this.state.keyword === undefined) {
-     artFilter = this.state.artworks.map(artwork =>
-           <div key={artwork._id} className="artwork">
-              <img src={artwork.cloudinaryURL} alt={artwork.title} />
-              <div className="text-wrap">
-                <h3>'<Link className="title-link" to={'/artist/'+artwork._id}>{artwork.title}</Link>'</h3>
-                <p><strong>artist:<Link className="artist-link" to={'/artist/'+artwork.firebaseId}>{artwork.artist}</Link></strong></p>
-              </div>
-           </div>
-          )
+
+      artFilter = this.state.artworks
+              .map(artwork =>
+               <div key={artwork._id} className="artwork">
+                  <img src={artwork.cloudinaryURL} alt={artwork.title} />
+                  <div className="text-wrap">
+                    <h3 className="art-title">'<Link className="title-link" to={'/artwork/'+artwork._id}>{artwork.title}</Link>'</h3>
+                    <p className="artist-title">artist:&nbsp;<Link className="artist-link" to={'/artist/'+artwork.firebaseId}>{artwork.artist}</Link></p>
+                  </div>
+               </div>
+              )
     }
 
   return (
     <div className="sharewall">
-      <div className="notification">
-      <p>Welcome to the ArtShare demo site. Art submitted by developer Jesse Lewis is not claimed to be his own but is being used as placement holder to help develop and improve this site.</p>
 
-      </div>
       <div className="Search">
         <form name="searchBox" onSubmit={ this.updateSearchTerm }>
           <input
@@ -98,17 +108,16 @@ let artFilter;
 
             {artFilter}
 
-           <div className="artwork add-wrap">
-                <img src="./addnew.png" className="add-new" alt="add art" />
-                <h4> <Link className="title-link" to={'/post'} >Add New</Link></h4>
+            <div className="artwork add-wrap">
+              <img src="./addnew.png" className="add-new" alt="add art" />
+              <h4> <Link className="title-link" to={'/post'} >Add New</Link></h4>
+            </div>
+
           </div>
+        </div>
 
       </div>
     </div>
-
-
-  </div>
-</div>
     );
   }
 }
