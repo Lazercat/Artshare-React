@@ -87,7 +87,7 @@ let artFilter;
     }
 
 
-if(this.state.artworks.length >=0){
+if(this.state.artworks.length <=0){
   return(
         <div className="sharewall">
           <h1>Welcome!</h1>
@@ -96,9 +96,7 @@ if(this.state.artworks.length >=0){
           <a href="https://artshare-react.herokuapp.com">https://artshare-react.herokuapp.com</a>
       </div>
     )
-}
-
-else{
+} else {
 
   return (
     <div className="sharewall">
