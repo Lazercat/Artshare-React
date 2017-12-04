@@ -1,5 +1,13 @@
 .viewArtwork{
-  margin-bottom:50px;
+  margin-bottom:25px;
+  text-align: center;
+  align-items: center;
+
+}
+
+
+.viewArtwork-container {
+  max-width:1400px;
 }
 
 .viewArt{
@@ -7,16 +15,22 @@
   margin-bottom:15px;
 }
 
+.col-sm-4 {
+  padding:0;
+  display:flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 .well {
+  align-self: flex-start;
   padding:10px;
-  width:90%;
-  margin-top:130px;
-  margin:0 auto;
-  margin-left:0;
-  margin-bottom:100px;
+  width:100%;
+  margin:10px;
   background-color: #fff;
   border: 1px solid rgba(0,150,136,.6);
   text-align:left;
+
 }
 
 .well >label {
@@ -34,15 +48,7 @@
   text-decoration:underline dotted;
 }
 
-.col-sm-8, .col-sm-4 {
-  padding-right: 0;
-}
 
-
-.col-sm-4 {
-  padding-left:0;
-  padding-right:5px;
-}
 
 
 /* The Modal (background) */

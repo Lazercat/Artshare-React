@@ -54,6 +54,7 @@ componentDidMount() {
     .catch(function (error) {
       console.log(error);
     });
+    console.log('iam componentDidMount!' +this.state.artworkData);
 }
 
 render() {
@@ -62,6 +63,8 @@ render() {
      let created = theData.createdOn.slice(0, 9);
       return (
         <div className="viewArtwork">
+           <div className="viewArtwork-container">
+
             <div id="myModal" className="modal">
               <div className="modal-content">
                  <img className="viewArtModal" src={theData.cloudinaryURL} text={theData.title} alt={theData.title} />
@@ -73,6 +76,7 @@ render() {
                  <img className="viewArt" src={theData.cloudinaryURL} text={theData.title} alt={theData.title} />
 
               </div>
+
               <div className="col-sm-4">
                 <div className="well">
                      <h2>'{theData.title}'</h2>
@@ -80,10 +84,12 @@ render() {
                      <label><strong>Description</strong></label><p>{theData.description}</p>
                      <label><strong>Tags</strong></label><p>{theData.tags}</p>
                      <label><strong>Submitted</strong></label><p>{created}</p>
-
                      <p><Link className="view-more-link" to={'/'} >[close]</Link></p>
                   </div>
               </div>
+           </div>
+
+
           </div>
         </div>
 
@@ -92,14 +98,14 @@ render() {
     } else if (this.state.processing === true) { // otherwise provide fallback content
 
       return (
-        <div className="App">
+        <div className="viewArtwork">
           <h2>Loading..</h2>
         </div>
       )
     } else {
 
       return (
-        <div className="App">
+        <div className="viewArtwork">
           <h2>Error..</h2>
         </div>
       )
