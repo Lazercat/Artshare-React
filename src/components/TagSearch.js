@@ -6,7 +6,7 @@ import {
 import '../styles/Artist.css';
 import '../App.css';
 
-class Artist extends Component {
+class TagSearch extends Component {
 constructor(props){
   super(props);
 
@@ -19,7 +19,7 @@ constructor(props){
 
 componentDidMount() {
     console.log('componentmountthinks '+'https://artshare-api.herokuapp.com/artworks/'+this.props.match.params.firebaseId );
-    axios.get('https://artshare-api.herokuapp.com/artworks/'+this.props.match.params.id)
+    axios.get('https://artshare-api.herokuapp.com/tags/'+this.props.match.params.id)
     .then((result) => {
       const artistArtData = result.data;
       this.setState({
@@ -57,9 +57,8 @@ let artFilter;
       <div className="artshare-content">
 
           <div className="artistDetails">
-             <div className="artistName"><h4>Artist: [[Artist Name and Profile Coming Soon]]</h4></div>
+             <div className="artistName"><h4>Tags: [[Tag Name Coming Soon]]</h4></div>
              <div className="artworks">Artworks: {this.state.artworkData.length}</div>
-             <div>more info coming..</div>
              <Link to={'/'}>return to art wall</Link>
           </div>
 
@@ -73,4 +72,4 @@ let artFilter;
     );
   }
 }
-export default Artist;
+export default TagSearch;

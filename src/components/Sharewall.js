@@ -86,6 +86,19 @@ let artFilter;
               )
     }
 
+
+if(this.state.artworks.length >=0){
+  return(
+        <div className="sharewall">
+          <h1>Welcome!</h1>
+          <p>Welcome to my demo site!
+             Please visit the following link to enjoy the full ArtShare experience.</p>
+          <a href="https://artshare-react.herokuapp.com">https://artshare-react.herokuapp.com</a>
+      </div>
+    )
+}
+
+
   return (
     <div className="sharewall">
 
