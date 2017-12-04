@@ -3,6 +3,7 @@ import axios from 'axios';
 import firebase from 'firebase';
 import { auth, provider } from '../utils/facebook-auth.js';
 import Dropzone from 'react-dropzone';
+import TagsInput from 'react-tagsinput';
 import {
   Link
 } from 'react-router-dom';
@@ -19,7 +20,8 @@ class Post extends Component {
       description: '',
       cloudinaryURL: '',
       artist: '',
-      tags: '',
+      tags: [],
+      tags2: [],
       firebaseId: '',
       processing: false,
       result: 'new',
@@ -27,6 +29,13 @@ class Post extends Component {
   this.handleSubmit = this.handleSubmit.bind(this);
   this.submitMore = this.submitMore.bind(this);
 }
+
+
+//TAGS w react-tagsinput
+handleChange(tags) {
+  this.setState({tags})
+}
+
 
 //HANDLING A FILE DROP TO CLOUDINARY
 handleDrop = files => {
@@ -189,54 +198,51 @@ render() {
                                       </Dropzone>
 
                                           <img className="uploadPreview" src={this.state.cloudinaryURL} alt="preview file will appear here" />
-
-
                               </div>
-
-                      </div>
-
-
-
-                      <div className="row">
-                      <input hidden className="disabled"
-                        onChange={ (evt) => { this.setState({ cloudinaryURL: evt.target.value}); }}
-                        value={ this.state.cloudinaryURL }
-                        placeholder="http://www.your-photo.com..." type="text" name="cloudinaryURL"
-                      />
-
-                      <label> Title (required)
-                      <input required
-                        onChange={ (evt) => { this.setState({ title: evt.target.value}); }}
-                        value={ this.state.title }
-                        placeholder="name of artwork" type="text" name="title"
-                      /></label><br />
                       </div>
 
                       <div className="row">
-                      <label> Search Tags
-                      <input
-                        onChange={ (evt) => { this.setState({ tags: evt.target.value}); }}
-                        value={ this.state.tags }
-                        placeholder="tags of artwork" type="text" name="tags"
-                      /></label><br />
+                        <input hidden className="disabled"
+                          onChange={ (evt) => { this.setState({ cloudinaryURL: evt.target.value}); }}
+                          value={ this.state.cloudinaryURL }
+                          placeholder="http://www.your-photo.com..." type="text" name="cloudinaryURL"
+                        />
+
+                        <label> Title (required)
+                        <input required
+                          onChange={ (evt) => { this.setState({ title: evt.target.value}); }}
+                          value={ this.state.title }
+                          placeholder="name of artwork" type="text" name="title"
+                        /></label><br />
                       </div>
+
 
                       <div className="row">
                         <label> Description</label>
-                      <textarea
-                        onChange={ (evt) => { this.setState({ description: evt.target.value}); } }
-                        value={ this.state.description }
-                        placeholder="describe your art here." type="text" name="description"
-                        ></textarea><br />
+                        <textarea
+                          onChange={ (evt) => { this.setState({ description: evt.target.value}); } }
+                          value={ this.state.description }
+                          placeholder="describe your art here." type="text" name="description"
+                          ></textarea><br />
                       </div>
+
+
                       <div className="row">
-                      <div className="button-wrap">
-                        <button type="Submit">Post Art!</button>
+                        <label> Search Tags
+                          <TagsInput value={this.state.tags} onChange={this.handleChange.bind(this)} />
+                        </label>
                       </div>
+
+
+                      <div className="row">
+                        <div className="button-wrap">
+                          <button className="post-btn" type="Submit">Post Art!</button>
+                        </div>
                       </div>
+
                   </form>
 
-                  </div>
+                </div>
 
 
       </div>

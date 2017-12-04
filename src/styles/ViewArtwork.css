@@ -12,6 +12,7 @@
   width:90%;
   margin-top:130px;
   margin:0 auto;
+  margin-left:0;
   margin-bottom:100px;
   background-color: #fff;
   border: 1px solid rgba(0,150,136,.6);
@@ -19,8 +20,9 @@
 }
 
 .well >label {
-  color:#333;
+  color:#111;
   font-weight:bolder;
+  font-size:18px;
 }
 
 .view-more-link {
@@ -35,6 +37,8 @@
 .col-sm-8, .col-sm-4 {
   padding-right: 0;
 }
+
+
 .col-sm-4 {
   padding-left:0;
   padding-right:5px;

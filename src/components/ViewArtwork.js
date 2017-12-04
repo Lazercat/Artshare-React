@@ -80,6 +80,7 @@ render() {
                      <label><strong>Description</strong></label><p>{theData.description}</p>
                      <label><strong>Tags</strong></label><p>{theData.tags}</p>
                      <label><strong>Submitted</strong></label><p>{created}</p>
+
                      <p><Link className="view-more-link" to={'/'} >[close]</Link></p>
                   </div>
               </div>
