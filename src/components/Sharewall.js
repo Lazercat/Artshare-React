@@ -98,6 +98,7 @@ if(this.state.artworks.length >=0){
     )
 }
 
+else{
 
   return (
     <div className="sharewall">
@@ -132,6 +133,8 @@ if(this.state.artworks.length >=0){
       </div>
     </div>
     );
+
+  }
   }
 }
 
