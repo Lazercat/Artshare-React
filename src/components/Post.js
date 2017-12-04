@@ -169,29 +169,30 @@ render() {
                       <form className="postform" onSubmit={this.handleSubmit} >
 
                       <div className="row">
-                          <label> Art Photo (required)
+                          <label> Art Photo (required) </label>
                                <div className="drop-container">
                                       <Dropzone
                                         onDrop={this.handleDrop.bind(this)}
-                                        multiple
                                         accept="image/*"
                                         style={{"width" : "250px", "marginBottom" : "5px", "color": "#333", "float": "left", "cursor" : "pointer", "background" : "white", "padding":"7px", "height" : "auto", "border" : "2px dashed #333", "boxShadow" : "1px 1px 2px teal"}}>
-                                        {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
-                                          if (isDragActive) {
-                                            return "This file is authorized";
-                                          }
-                                          if (isDragReject) {
-                                            return "This file type is not authorized";
-                                          }
-                                          return acceptedFiles.length || rejectedFiles.length
-                                            ? `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles} files`
-                                            : "Drag and Drop or click here to upload art image.";
-                                            console.log(acceptedFiles);
-                                        }}
+                                            {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
+                                                if (isDragActive) {
+                                                  return "This file is authorized";
+                                                }
+                                                if (isDragReject) {
+                                                  return "This file type is not authorized";
+                                                }
+                                                return acceptedFiles.length || rejectedFiles.length
+                                                  ? `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles} files`
+                                                  : "Drag and Drop or click here to upload art image.";
+                                            }}
                                       </Dropzone>
-                                      <img className="uploadPreview" src={this.state.cloudinaryURL} alt="preview file will appear here" />
+
+                                          <img className="uploadPreview" src={this.state.cloudinaryURL} alt="preview file will appear here" />
+
+
                               </div>
-                          </label>
+
                       </div>
 
 
