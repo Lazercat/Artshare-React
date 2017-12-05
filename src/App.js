@@ -12,16 +12,8 @@ import MetaTags from 'react-meta-tags';
 class App extends Component {
 
   render() {
-    if ( location.protocol != 'https:')
-      {
-       location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-      }
-
-
 
     return (
-
-
       <div className="App">
          <MetaTags>
             <title>ArtShare</title>
