@@ -21,7 +21,6 @@ class Post extends Component {
       cloudinaryURL: '',
       artist: '',
       tags: [],
-      tags2: [],
       firebaseId: '',
       processing: false,
       result: 'new',
@@ -33,7 +32,7 @@ class Post extends Component {
 
 //TAGS w react-tagsinput
 handleChange(tags) {
-  this.setState({tags})
+  this.setState({ tags });
 }
 
 
