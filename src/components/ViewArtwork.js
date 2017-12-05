@@ -117,8 +117,7 @@ render() {
                     <label><strong>Artist</strong></label><p><Link className="artist-link" to={'/artist/'+theData.firebaseId}>{theData.artist}</Link></p>
                     <label><strong>Description</strong></label><p>{theData.description}</p>
                     <label><strong>Submitted</strong></label><p>{created}</p>
-                    <label><strong>Tags</strong></label>
-                        {cleanTags}
+                    {cleanTags}
                     <div className="view-more"><Link className="view-more-link" to={'/'} >[close]</Link></div>
                   </div>
               </div>
