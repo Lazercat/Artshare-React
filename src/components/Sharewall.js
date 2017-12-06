@@ -60,7 +60,7 @@ let artFilter;
                   <img src={artwork.cloudinaryURL} alt={artwork.title} />
                   <div className="text-wrap">
                     <h3 className="art-title"><Link className="title-link" to={'/artwork/'+artwork._id}>{artwork.title}</Link></h3>
-                    <p className="artist-title">artist:&nbsp;<Link className="artist-link" to={'/artist/'+artwork.firebaseId}>{artwork.artist}</Link></p>
+                    <p className="artist-title">artist:&nbsp;<Link className="artist-link" to={'/artist/'+artwork.firebaseId} >{artwork.artist}</Link></p>
                   </div>
                 </div>
               )
