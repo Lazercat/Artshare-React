@@ -27,19 +27,24 @@ constructor(props){
     currentUser: null,
     artwork: null,
     activeSearchTerm: '',
+    processing: false,
   }
 }
 
 componentDidMount() {
+
+    this.setState({processing:true});
     axios.get('https://artshare-api.herokuapp.com/artworks')
     .then( (result) => {
       const artData = result.data;
        const shuffledPosts = shuffleArt(artData);
       this.setState({
         artworks: shuffledPosts.length > 0 ? shuffledPosts : [],
+        processing: false,
       });
     })
     .catch(function (error) {
+      this.setState({ processing: false});
       console.log(error);
     });
 }
@@ -79,14 +84,21 @@ let artFilter;
               )
     }
 
+if(this.state.processing === true) {
+  return(
 
-if(this.state.artworks.length <=0){
+    <div className="sharewall">
+      <h4 className="loading"> loading artworks...</h4>
+    </div>
+    )
+
+} else if(this.state.artworks.length <=0 && this.state.processing === false){
   return(
         <div className="sharewall">
-          <h1>Welcome!</h1>
+
           <p>Welcome to my demo site!
              Please visit the following link to enjoy the full ArtShare experience.</p>
-          <a href="https://artshare-react.herokuapp.com">https://artshare-react.herokuapp.com</a>
+          <a href="https://artshare-react.herokuapp.com">Launch Full Site</a>
       </div>
     )
 } else {
