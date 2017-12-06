@@ -18,7 +18,6 @@ constructor(props){
 
 
 componentDidMount() {
-    console.log('componentmountthinks '+'https://artshare-api.herokuapp.com/artworks/'+this.props.match.params.firebaseId );
     axios.get('https://artshare-api.herokuapp.com/artworks/'+this.props.match.params.id)
     .then((result) => {
       const artistArtData = result.data;

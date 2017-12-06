@@ -26,9 +26,6 @@ handleLogout(evt){
   this.props.getLogoutClick();
 }
 
-componentDidMount(){
-  console.log(this.state.currentUser);
-}
 
 render() {
   let confirmSubmit;

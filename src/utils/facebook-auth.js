@@ -1,12 +1,12 @@
 import firebase from 'firebase';
 
-  var configdev = {
-    apiKey: "AIzaSyBdXuwm2NXf2BVl3qrwvWjq1460mUfB-u4",
-    authDomain: "artshare-local.firebaseapp.com",
-    databaseURL: "https://artshare-local.firebaseio.com",
-    storageBucket: "artshare-local.appspot.com",
-    messagingSenderId: "688790141056"
-  };
+  // var configdev = {
+  //   apiKey: "AIzaSyBdXuwm2NXf2BVl3qrwvWjq1460mUfB-u4",
+  //   authDomain: "artshare-local.firebaseapp.com",
+  //   databaseURL: "https://artshare-local.firebaseio.com",
+  //   storageBucket: "artshare-local.appspot.com",
+  //   messagingSenderId: "688790141056"
+  // };
 
   var configprod = {
     apiKey: "AIzaSyA5ZENprgNqGv9Olt4zKL4w1BaXQ8bPBW0",

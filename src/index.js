@@ -1,7 +1,3 @@
-/************************************
-        ARTSHARE REACT
-  Written and Owned by: Jesse Lewis
-*************************************/
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -10,3 +6,8 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
+
+/************************************
+        ARTSHARE REACT
+  Written and Owned by: Jesse Lewis
+*************************************/

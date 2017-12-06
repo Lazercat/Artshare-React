@@ -18,13 +18,6 @@ function shuffleArt(array) {
   return array;
 }
 
-function sortArtDate(array) {
-  let i = array.length -1;
-  for (; i > 0; i--) {
-    console.log('i am ' + array.id);
-  }
-}
-
 class Sharewall extends Component {
 constructor(props){
   super(props);
