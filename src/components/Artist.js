@@ -74,7 +74,6 @@ let artist;
           </div>
     }
 
-
  if(this.state.artworkData !== null || this.state.artworkData !== undefined){
       artistWorks = this.state.artworkData.map(artwork =>
            <div key={artwork._id} className="artwork">
@@ -95,14 +94,12 @@ let artist;
   return (
     <div className="artist">
       <div className="artshare-content">
-
-          {artist}
-
-          <div className="art-container" >
-            <div className="art-grid">
-              {artistWorks}
-            </div>
+        {artist}
+        <div className="art-container" >
+          <div className="art-grid">
+           {artistWorks}
           </div>
+        </div>
     </div>
   </div>
     );

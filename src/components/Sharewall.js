@@ -44,9 +44,9 @@ componentDidMount() {
       });
     })
     .catch(function (error) {
-      this.setState({ processing: false});
       console.log(error);
     });
+
 }
 
 render() {
