@@ -18,8 +18,10 @@
   color: orange;
 }
 
+
 .navbar, .navbar-expand-lg, .navbar-dark, .bg-dark, .fixed-top{
   border-bottom:4px solid #fff;
+
 }
 
 .profile-item {

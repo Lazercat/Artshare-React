@@ -1,11 +1,12 @@
+/* global _ */
 import React, { Component } from 'react';
+import Artwork from './Artwork.js';
 import axios from 'axios';
 import {
   Link
 } from 'react-router-dom';
 import '../styles/Sharewall.css';
 import '../App.css';
-
 
 function shuffleArt(array) {
   let i = array.length - 1;
@@ -19,20 +20,19 @@ function shuffleArt(array) {
 }
 
 class Sharewall extends Component {
-constructor(props){
-  super(props);
-  this.state = {
-    users: [],
-    artworks: [],
-    currentUser: null,
-    artwork: null,
-    activeSearchTerm: '',
-    processing: false,
+  constructor(props){
+    super(props);
+    this.state = {
+      // users: [],
+      currentUser: null,
+      artwork: null,
+      activeSearchTerm: '',
+      processing: false,
+      artworks: [],
+    }
   }
-}
 
-componentDidMount() {
-
+  componentDidMount() {
     this.setState({processing:true});
     axios.get('https://artshare-api.herokuapp.com/artworks')
     .then( (result) => {
@@ -46,66 +46,48 @@ componentDidMount() {
     .catch(function (error) {
       console.log(error);
     });
-
-}
+  }
 
 render() {
-let artFilter;
+  const { artworks, currentPage, artworksPerPage } = this.state;
+  let artFilter;
 
- if(this.state.activeSearchTerm !== null){
-
-      artFilter = this.state.artworks
-              .filter(artwork =>
-                artwork.title.indexOf(this.state.activeSearchTerm)!== -1 ||
-                artwork.tags.indexOf(this.state.activeSearchTerm)!== -1 ||
-                artwork.description.indexOf(this.state.activeSearchTerm)!== -1 ||
-                artwork.artist.indexOf(this.state.activeSearchTerm)!== -1)
-              .map(artwork =>
-                <div key={artwork._id} className="artwork">
-                  <img src={artwork.cloudinaryURL} alt={artwork.title} />
-                  <div className="text-wrap">
-                    <h3 className="art-title"><Link className="title-link" to={'/artwork/'+artwork._id}>{artwork.title}</Link></h3>
-                    <p className="artist-title">artist:&nbsp;<Link className="artist-link" to={'/artist/'+artwork.firebaseId} >{artwork.artist}</Link></p>
-                  </div>
-                </div>
-              )
+  if(this.state.activeSearchTerm !== null){
+      artFilter = this.state.artworks.filter(artwork =>
+                      artwork.title.indexOf(this.state.activeSearchTerm)!== -1 ||
+                      artwork.tags.indexOf(this.state.activeSearchTerm)!== -1 ||
+                      artwork.description.indexOf(this.state.activeSearchTerm)!== -1 ||
+                      artwork.artist.indexOf(this.state.activeSearchTerm)!== -1)
+                    .map(artwork =>
+                       <Artwork key={artwork._id} artwork={artwork}/>
+                    )
 
     } else if (this.state.activeSearchTerm === null || this.state.keyword === undefined) {
-
       artFilter = this.state.artworks
               .map(artwork =>
-               <div key={artwork._id} className="artwork">
-                  <img src={artwork.cloudinaryURL} alt={artwork.title} />
-                  <div className="text-wrap">
-                    <h3 className="art-title"><Link className="title-link" to={'/artwork/'+artwork._id}>{artwork.title}</Link></h3>
-                    <p className="artist-title">artist:&nbsp;<Link className="artist-link" to={'/artist/'+artwork.firebaseId}>{artwork.artist}</Link></p>
-                  </div>
-               </div>
+                 <Artwork key={artwork._id} artwork={artwork}/>
               )
     }
 
-if(this.state.processing === true) {
-  return(
+  if(this.state.processing === true) {
+    return(
+      <div className="sharewall">
+        <h4 className="loading"> loading artworks...</h4>
+      </div>
+      )
 
-    <div className="sharewall">
-      <h4 className="loading"> loading artworks...</h4>
-    </div>
-    )
-
-} else if(this.state.artworks.length <=0 && this.state.processing === false){
-  return(
+  } else if(this.state.artworks.length <=0 && this.state.processing === false){
+    return(
         <div className="sharewall">
-
           <p>Welcome to my demo site!
              Please visit the following link to enjoy the full ArtShare experience.</p>
           <a href="https://artshare-react.herokuapp.com">Launch Full Site</a>
-      </div>
-    )
-} else {
+        </div>
+      )
+  } else {
 
   return (
-    <div className="sharewall">
-
+    <div>
       <div className="Search">
         <form name="searchBox" onSubmit={ this.updateSearchTerm }>
           <input
@@ -118,24 +100,17 @@ if(this.state.processing === true) {
         </form>
       </div>
 
-      <div className="artshare-content">
-
-        <div className="art-container" >
-          <div className="art-grid">
-
-            {artFilter}
-
-            <div className="artwork add-wrap">
-              <img src="./addnew.png" className="add-new" alt="add art" />
-              <h4> <Link className="title-link" to={'/post'} >Add New</Link></h4>
+      <div className="sharewall">
+        <div className="artshare-content">
+          <div className="art-container" >
+            <div className="art-grid">
+              {artFilter}
             </div>
-
           </div>
         </div>
-
       </div>
     </div>
-    );
+  );
 
   }
   }

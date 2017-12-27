@@ -1,7 +1,9 @@
 .sharewall {
   margin-bottom:100px;
   text-align: center;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
+  display:flex;
 }
 
 .loading {
@@ -9,7 +11,7 @@
 }
 
 .art-container {
-  max-width: 1400px;
+/*  max-width: 1400px;*/
 }
 
 .notification {
@@ -31,7 +33,7 @@
 }
 
 .searchTerm {
-  max-width:400px;
+  max-width:300px;
   min-width: 200px;
   margin:2px 2px;
 }
@@ -46,53 +48,10 @@
   overflow-y: hidden;
 }
 
-.artwork{
-  padding:2px;
-  height:auto;
-  overflow-y:hidden;
-  margin:10px;
-}
-
 
 .add-new{
   margin-bottom:40px;
   max-width:100px;
-}
-
-
-.artwork > img {
-  align-self: flex-start;
-  justify-content: center;
-  box-shadow:5px 5px 5px #ccc;
-  display: block;
-  padding:1px;
-  margin: 0 auto;
-
-  width:90%;
-  height:auto;
-}
-
-
-.text-wrap{
-  margin-top:15px;
-}
-
-h3.art-title{
-  margin:0;
-
-}
-
-a.title-link{
-  font-size:20px;
-}
-
-.title-link, .artist-link{
-  color:#0088cc;
-}
-
-.title-link:hover, .artist-link:hover{
-  color: #2200CC;
-  text-decoration:underline dotted;
 }
 
 .add-wrap > h4 {
@@ -100,24 +59,25 @@ a.title-link{
 }
 .art-grid {
   margin-top:15px;
+  margin:0 auto;
   width:100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 @media screen and (min-width:500px) and (max-width:750px) {
   .artwork {
-    width: calc(100% / 3);
+    width: calc(100% / 2);
   }
 }
 
 
 @media screen and (min-width: 751px) and (max-width:999px) {
   .artwork {
-    width: calc(100% / 4);
+    width: calc(100% / 3);
   }
 }
 
@@ -131,7 +91,7 @@ a.title-link{
 
 @media screen and (min-width: 1101px) {
   .artwork {
-    width: calc(100% / 6);
+    width: calc(100% / 4);
   }
 
 
